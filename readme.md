@@ -1,0 +1,1 @@
+This is the beginning of dependency injection: an object receives the data or collaborators it needs instead of controlling the entire workflow itself.
