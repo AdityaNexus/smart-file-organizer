@@ -4,7 +4,7 @@ from File_item import FileItem
 
 class FileScanner:
     def __init__(self, directory: str | Path , exclude_dir : set[str] | None = None):
-        self.exclude = exclude_dir or {"organized"}
+        self.exclude = (exclude_dir if exclude_dir is not None else {"organized"})
         self.directory = Path(directory)
 
     def is_dir(self) -> bool:

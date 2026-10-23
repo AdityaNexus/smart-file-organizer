@@ -1,0 +1,1287 @@
+%PDF-1.4
+%‚„œ”
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [7 0 R 9 0 R 11 0 R 13 0 R 15 0 R 17 0 R 19 0 R] /Count 7 >>
+endobj
+3 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+endobj
+4 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold >>
+endobj
+5 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Courier >>
+endobj
+6 0 obj
+<< /Length 4909 >>
+stream
+BT
+/F2 17 Tf
+1 0 0 1 48 792.0 Tm
+(Windows Paths and File Operations) Tj
+/F1 10 Tf
+1 0 0 1 48 761.0 Tm
+(PowerShell, command-line, Python pathlib, and Smart File Organizer examples) Tj
+/F1 8.5 Tf
+1 0 0 1 48 744.0 Tm
+(A practical reference for creating folders and files, writing paths in the CLI, navigating) Tj
+/F1 8.5 Tf
+1 0 0 1 48 732.0 Tm
+(directories, searching for files, copying and moving data, deleting safely, and understanding) Tj
+/F1 8.5 Tf
+1 0 0 1 48 720.0 Tm
+(forward and backward slashes on Windows.) Tj
+/F2 12 Tf
+1 0 0 1 48 708.0 Tm
+(1. Windows path basics) Tj
+/F1 8.5 Tf
+1 0 0 1 48 685.0 Tm
+(A path tells a program where a file or folder is located. Windows paths commonly use a drive) Tj
+/F1 8.5 Tf
+1 0 0 1 48 673.0 Tm
+(letter, a backslash, folder names, and a file name.) Tj
+/F3 7.5 Tf
+1 0 0 1 56 661.0 Tm
+(C:\\Smart file organizer\\Downloads\\organized\\Documents\\report.pdf) Tj
+/F3 7.5 Tf
+1 0 0 1 56 651.0 Tm
+(|  |                   |         |          |          |) Tj
+/F3 7.5 Tf
+1 0 0 1 56 641.0 Tm
+(|  |                   |         |          |          +-- file name) Tj
+/F3 7.5 Tf
+1 0 0 1 56 631.0 Tm
+(|  |                   |         |          +------------- folder) Tj
+/F3 7.5 Tf
+1 0 0 1 56 621.0 Tm
+(|  |                   |         +------------------------ folder) Tj
+/F3 7.5 Tf
+1 0 0 1 56 611.0 Tm
+(|  |                   +---------------------------------- folder) Tj
+/F3 7.5 Tf
+1 0 0 1 56 601.0 Tm
+(|  +------------------------------------------------------ folders) Tj
+/F3 7.5 Tf
+1 0 0 1 56 591.0 Tm
+(+--------------------------------------------------------- drive) Tj
+/F1 8.5 Tf
+1 0 0 1 48 581.0 Tm
+() Tj
+/F1 8.5 Tf
+1 0 0 1 48 569.0 Tm
+(The drive root is written as C:\\. A path beginning with a drive and backslash is absolute. An) Tj
+/F1 8.5 Tf
+1 0 0 1 48 557.0 Tm
+(absolute path identifies a location independently of the current terminal directory.) Tj
+/F2 12 Tf
+1 0 0 1 48 545.0 Tm
+(2. Absolute and relative paths) Tj
+/F1 8.5 Tf
+1 0 0 1 48 522.0 Tm
+(An absolute path starts from a drive root or a network share. A relative path starts from the) Tj
+/F1 8.5 Tf
+1 0 0 1 48 510.0 Tm
+(current working directory.) Tj
+/F3 7.5 Tf
+1 0 0 1 56 498.0 Tm
+(# Absolute path) Tj
+/F3 7.5 Tf
+1 0 0 1 56 488.0 Tm
+(C:\\Smart file organizer\\Downloads\\report.pdf) Tj
+/F3 7.5 Tf
+1 0 0 1 56 478.0 Tm
+() Tj
+/F3 7.5 Tf
+1 0 0 1 56 468.0 Tm
+(# Relative path from C:\\Smart file organizer) Tj
+/F3 7.5 Tf
+1 0 0 1 56 458.0 Tm
+(Downloads\\report.pdf) Tj
+/F3 7.5 Tf
+1 0 0 1 56 448.0 Tm
+() Tj
+/F3 7.5 Tf
+1 0 0 1 56 438.0 Tm
+(# Current directory) Tj
+/F3 7.5 Tf
+1 0 0 1 56 428.0 Tm
+(.) Tj
+/F3 7.5 Tf
+1 0 0 1 56 418.0 Tm
+() Tj
+/F3 7.5 Tf
+1 0 0 1 56 408.0 Tm
+(# Parent directory) Tj
+/F3 7.5 Tf
+1 0 0 1 56 398.0 Tm
+(..) Tj
+/F3 7.5 Tf
+1 0 0 1 56 388.0 Tm
+() Tj
+/F3 7.5 Tf
+1 0 0 1 56 378.0 Tm
+(# Current directory's Downloads folder) Tj
+/F3 7.5 Tf
+1 0 0 1 56 368.0 Tm
+(.\\Downloads) Tj
+/F3 7.5 Tf
+1 0 0 1 56 358.0 Tm
+() Tj
+/F3 7.5 Tf
+1 0 0 1 56 348.0 Tm
+(# Parent directory's Downloads folder) Tj
+/F3 7.5 Tf
+1 0 0 1 56 338.0 Tm
+(..\\Downloads) Tj
+/F1 8.5 Tf
+1 0 0 1 48 328.0 Tm
+() Tj
+/F1 8.5 Tf
+1 0 0 1 48 316.0 Tm
+(If the prompt says PS C:\\Smart file organizer>, then Downloads\\report.pdf means C:\\Smart file) Tj
+/F1 8.5 Tf
+1 0 0 1 48 304.0 Tm
+(organizer\\Downloads\\report.pdf.) Tj
+/F1 8.5 Tf
+1 0 0 1 48 292.0 Tm
+(The current directory is not necessarily the directory where a Python script is stored. This) Tj
+/F1 8.5 Tf
+1 0 0 1 48 280.0 Tm
+(is why relative paths can point somewhere unexpected when a script is launched from another) Tj
+/F1 8.5 Tf
+1 0 0 1 48 268.0 Tm
+(folder.) Tj
+/F2 12 Tf
+1 0 0 1 48 256.0 Tm
+(3. Backslash, forward slash, and escaping) Tj
+/F1 8.5 Tf
+1 0 0 1 48 233.0 Tm
+(PowerShell accepts Windows backslashes and usually accepts forward slashes in paths. Backslash) Tj
+/F1 8.5 Tf
+1 0 0 1 48 221.0 Tm
+( is the conventional Windows separator.) Tj
+/F3 7.5 Tf
+1 0 0 1 56 209.0 Tm
+(C:\\Smart file organizer\\Downloads\\report.pdf) Tj
+/F3 7.5 Tf
+1 0 0 1 56 199.0 Tm
+(C:/Smart file organizer/Downloads/report.pdf) Tj
+/F1 8.5 Tf
+1 0 0 1 48 189.0 Tm
+() Tj
+/F1 8.5 Tf
+1 0 0 1 48 177.0 Tm
+(In PowerShell, a backslash is normally a literal path separator. In Python strings, backslash) Tj
+/F1 8.5 Tf
+1 0 0 1 48 165.0 Tm
+(begins escape sequences, so use a raw string, doubled backslashes, or forward slashes.) Tj
+/F3 7.5 Tf
+1 0 0 1 56 153.0 Tm
+(# Python: raw string) Tj
+/F3 7.5 Tf
+1 0 0 1 56 143.0 Tm
+(path = r"C:\\Smart file organizer\\Downloads\\report.pdf") Tj
+/F3 7.5 Tf
+1 0 0 1 56 133.0 Tm
+() Tj
+/F3 7.5 Tf
+1 0 0 1 56 123.0 Tm
+(# Python: doubled backslashes) Tj
+/F3 7.5 Tf
+1 0 0 1 56 113.0 Tm
+(path = "C:\\\\Smart file organizer\\\\Downloads\\\\report.pdf") Tj
+/F3 7.5 Tf
+1 0 0 1 56 103.0 Tm
+() Tj
+/F3 7.5 Tf
+1 0 0 1 56 93.0 Tm
+(# Python: forward slashes) Tj
+/F3 7.5 Tf
+1 0 0 1 56 83.0 Tm
+(path = "C:/Smart file organizer/Downloads/report.pdf") Tj
+/F1 8.5 Tf
+1 0 0 1 48 73.0 Tm
+() Tj
+ET
+endstream
+endobj
+7 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R /F2 4 0 R /F3 5 0 R >> >> /Contents 6 0 R >>
+endobj
+8 0 obj
+<< /Length 4472 >>
+stream
+BT
+/F1 8.5 Tf
+1 0 0 1 48 792.0 Tm
+(Do not use a trailing backslash in a Python raw string because it escapes the closing quote.) Tj
+/F1 8.5 Tf
+1 0 0 1 48 780.0 Tm
+(Use r'C:\\folder' with a doubled final slash, pathlib, or omit the final separator.) Tj
+/F2 12 Tf
+1 0 0 1 48 768.0 Tm
+(4. Spaces and quoting) Tj
+/F1 8.5 Tf
+1 0 0 1 48 745.0 Tm
+(A path containing spaces must be quoted when passed as one CLI argument. Double quotes are the) Tj
+/F1 8.5 Tf
+1 0 0 1 48 733.0 Tm
+( normal PowerShell choice.) Tj
+/F3 7.5 Tf
+1 0 0 1 56 721.0 Tm
+(cd "C:\\Smart file organizer") Tj
+/F3 7.5 Tf
+1 0 0 1 56 711.0 Tm
+(uv run python main.py "C:\\Old Files" "C:\\Organized Files") Tj
+/F3 7.5 Tf
+1 0 0 1 56 701.0 Tm
+() Tj
+/F3 7.5 Tf
+1 0 0 1 56 691.0 Tm
+(New-Item -ItemType Directory -Path "C:\\My Documents\\Reports") Tj
+/F3 7.5 Tf
+1 0 0 1 56 681.0 Tm
+(Get-ChildItem -LiteralPath "C:\\My Documents\\Reports") Tj
+/F1 8.5 Tf
+1 0 0 1 48 671.0 Tm
+() Tj
+/F1 8.5 Tf
+1 0 0 1 48 659.0 Tm
+(Without quotes, PowerShell splits the path at spaces and treats the pieces as separate) Tj
+/F1 8.5 Tf
+1 0 0 1 48 647.0 Tm
+(arguments.) Tj
+/F1 8.5 Tf
+1 0 0 1 48 635.0 Tm
+(Use -LiteralPath when a path should be treated exactly as written. Use -Path when wildcard) Tj
+/F1 8.5 Tf
+1 0 0 1 48 623.0 Tm
+(expansion is desired.) Tj
+/F2 12 Tf
+1 0 0 1 48 611.0 Tm
+(5. See and change the current directory) Tj
+/F3 7.5 Tf
+1 0 0 1 56 588.0 Tm
+(# Print current directory) Tj
+/F3 7.5 Tf
+1 0 0 1 56 578.0 Tm
+(Get-Location) Tj
+/F3 7.5 Tf
+1 0 0 1 56 568.0 Tm
+(pwd) Tj
+/F3 7.5 Tf
+1 0 0 1 56 558.0 Tm
+() Tj
+/F3 7.5 Tf
+1 0 0 1 56 548.0 Tm
+(# Change directory) Tj
+/F3 7.5 Tf
+1 0 0 1 56 538.0 Tm
+(Set-Location "C:\\Smart file organizer") Tj
+/F3 7.5 Tf
+1 0 0 1 56 528.0 Tm
+(cd "C:\\Smart file organizer") Tj
+/F3 7.5 Tf
+1 0 0 1 56 518.0 Tm
+() Tj
+/F3 7.5 Tf
+1 0 0 1 56 508.0 Tm
+(# Move to a child directory) Tj
+/F3 7.5 Tf
+1 0 0 1 56 498.0 Tm
+(cd Downloads) Tj
+/F3 7.5 Tf
+1 0 0 1 56 488.0 Tm
+() Tj
+/F3 7.5 Tf
+1 0 0 1 56 478.0 Tm
+(# Move to the parent) Tj
+/F3 7.5 Tf
+1 0 0 1 56 468.0 Tm
+(cd ..) Tj
+/F3 7.5 Tf
+1 0 0 1 56 458.0 Tm
+() Tj
+/F3 7.5 Tf
+1 0 0 1 56 448.0 Tm
+(# Return to the previous location) Tj
+/F3 7.5 Tf
+1 0 0 1 56 438.0 Tm
+(Pop-Location) Tj
+/F1 8.5 Tf
+1 0 0 1 48 428.0 Tm
+() Tj
+/F1 8.5 Tf
+1 0 0 1 48 416.0 Tm
+(Get-Location is useful before running a command that uses relative paths. The prompt also) Tj
+/F1 8.5 Tf
+1 0 0 1 48 404.0 Tm
+(displays the current location, for example PS C:\\Smart file organizer>.) Tj
+/F2 12 Tf
+1 0 0 1 48 392.0 Tm
+(6. Create folders) Tj
+/F3 7.5 Tf
+1 0 0 1 56 369.0 Tm
+(# Create one folder) Tj
+/F3 7.5 Tf
+1 0 0 1 56 359.0 Tm
+(New-Item -ItemType Directory -Path "C:\\Smart file organizer\\NewFolder") Tj
+/F3 7.5 Tf
+1 0 0 1 56 349.0 Tm
+() Tj
+/F3 7.5 Tf
+1 0 0 1 56 339.0 Tm
+(# Create nested folders; -Force creates missing parents) Tj
+/F3 7.5 Tf
+1 0 0 1 56 329.0 Tm
+(New-Item -ItemType Directory -Path "C:\\Smart file organizer\\A\\B\\C" -Force) Tj
+/F3 7.5 Tf
+1 0 0 1 56 319.0 Tm
+() Tj
+/F3 7.5 Tf
+1 0 0 1 56 309.0 Tm
+(# Create a folder relative to the current directory) Tj
+/F3 7.5 Tf
+1 0 0 1 56 299.0 Tm
+(New-Item -ItemType Directory -Path ".\\Downloads\\organized" -Force) Tj
+/F3 7.5 Tf
+1 0 0 1 56 289.0 Tm
+() Tj
+/F3 7.5 Tf
+1 0 0 1 56 279.0 Tm
+(# Short alias) Tj
+/F3 7.5 Tf
+1 0 0 1 56 269.0 Tm
+(mkdir ".\\Downloads\\organized") Tj
+/F1 8.5 Tf
+1 0 0 1 48 259.0 Tm
+() Tj
+/F1 8.5 Tf
+1 0 0 1 48 247.0 Tm
+(New-Item returns an object describing the created item. If the folder already exists, -Force) Tj
+/F1 8.5 Tf
+1 0 0 1 48 235.0 Tm
+(prevents an unnecessary failure in common cases.) Tj
+/F2 12 Tf
+1 0 0 1 48 223.0 Tm
+(7. Create files and write text) Tj
+/F3 7.5 Tf
+1 0 0 1 56 200.0 Tm
+(# Create an empty file) Tj
+/F3 7.5 Tf
+1 0 0 1 56 190.0 Tm
+(New-Item -ItemType File -Path ".\\notes.txt") Tj
+/F3 7.5 Tf
+1 0 0 1 56 180.0 Tm
+() Tj
+/F3 7.5 Tf
+1 0 0 1 56 170.0 Tm
+(# Create or overwrite a text file) Tj
+/F3 7.5 Tf
+1 0 0 1 56 160.0 Tm
+(Set-Content -Path ".\\notes.txt" -Value "First line") Tj
+/F3 7.5 Tf
+1 0 0 1 56 150.0 Tm
+() Tj
+/F3 7.5 Tf
+1 0 0 1 56 140.0 Tm
+(# Append text) Tj
+/F3 7.5 Tf
+1 0 0 1 56 130.0 Tm
+(Add-Content -Path ".\\notes.txt" -Value "Second line") Tj
+/F3 7.5 Tf
+1 0 0 1 56 120.0 Tm
+() Tj
+/F3 7.5 Tf
+1 0 0 1 56 110.0 Tm
+(# Write multiple lines) Tj
+/F3 7.5 Tf
+1 0 0 1 56 100.0 Tm
+(@") Tj
+/F3 7.5 Tf
+1 0 0 1 56 90.0 Tm
+(First line) Tj
+/F3 7.5 Tf
+1 0 0 1 56 80.0 Tm
+(Second line) Tj
+/F3 7.5 Tf
+1 0 0 1 56 70.0 Tm
+("@ | Set-Content -Path ".\\notes.txt") Tj
+/F3 7.5 Tf
+1 0 0 1 56 60.0 Tm
+() Tj
+ET
+endstream
+endobj
+9 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R /F2 4 0 R /F3 5 0 R >> >> /Contents 8 0 R >>
+endobj
+10 0 obj
+<< /Length 4383 >>
+stream
+BT
+/F3 7.5 Tf
+1 0 0 1 56 792.0 Tm
+(# Read a file) Tj
+/F3 7.5 Tf
+1 0 0 1 56 782.0 Tm
+(Get-Content -Path ".\\notes.txt") Tj
+/F1 8.5 Tf
+1 0 0 1 48 772.0 Tm
+() Tj
+/F1 8.5 Tf
+1 0 0 1 48 760.0 Tm
+(Set-Content replaces the file contents. Add-Content appends. Be careful with Set-Content when) Tj
+/F1 8.5 Tf
+1 0 0 1 48 748.0 Tm
+(the file contains important data.) Tj
+/F2 12 Tf
+1 0 0 1 48 736.0 Tm
+(8. List and inspect files) Tj
+/F3 7.5 Tf
+1 0 0 1 56 713.0 Tm
+(# List current directory) Tj
+/F3 7.5 Tf
+1 0 0 1 56 703.0 Tm
+(Get-ChildItem) Tj
+/F3 7.5 Tf
+1 0 0 1 56 693.0 Tm
+(dir) Tj
+/F3 7.5 Tf
+1 0 0 1 56 683.0 Tm
+() Tj
+/F3 7.5 Tf
+1 0 0 1 56 673.0 Tm
+(# List files in a specific folder) Tj
+/F3 7.5 Tf
+1 0 0 1 56 663.0 Tm
+(Get-ChildItem -LiteralPath "C:\\Smart file organizer\\Downloads") Tj
+/F3 7.5 Tf
+1 0 0 1 56 653.0 Tm
+() Tj
+/F3 7.5 Tf
+1 0 0 1 56 643.0 Tm
+(# Include hidden items) Tj
+/F3 7.5 Tf
+1 0 0 1 56 633.0 Tm
+(Get-ChildItem -Force) Tj
+/F3 7.5 Tf
+1 0 0 1 56 623.0 Tm
+() Tj
+/F3 7.5 Tf
+1 0 0 1 56 613.0 Tm
+(# Files only) Tj
+/F3 7.5 Tf
+1 0 0 1 56 603.0 Tm
+(Get-ChildItem -File) Tj
+/F3 7.5 Tf
+1 0 0 1 56 593.0 Tm
+() Tj
+/F3 7.5 Tf
+1 0 0 1 56 583.0 Tm
+(# Directories only) Tj
+/F3 7.5 Tf
+1 0 0 1 56 573.0 Tm
+(Get-ChildItem -Directory) Tj
+/F3 7.5 Tf
+1 0 0 1 56 563.0 Tm
+() Tj
+/F3 7.5 Tf
+1 0 0 1 56 553.0 Tm
+(# Recursive listing) Tj
+/F3 7.5 Tf
+1 0 0 1 56 543.0 Tm
+(Get-ChildItem -LiteralPath ".\\Downloads" -Recurse) Tj
+/F3 7.5 Tf
+1 0 0 1 56 533.0 Tm
+() Tj
+/F3 7.5 Tf
+1 0 0 1 56 523.0 Tm
+(# Show full paths) Tj
+/F3 7.5 Tf
+1 0 0 1 56 513.0 Tm
+(Get-ChildItem -File -Recurse | Select-Object -ExpandProperty FullName) Tj
+/F1 8.5 Tf
+1 0 0 1 48 503.0 Tm
+() Tj
+/F1 8.5 Tf
+1 0 0 1 48 491.0 Tm
+(Get-ChildItem is the PowerShell command for listing directory contents. Its aliases dir and ls) Tj
+/F1 8.5 Tf
+1 0 0 1 48 479.0 Tm
+( are convenient, but the full name is clearer in scripts and notes.) Tj
+/F2 12 Tf
+1 0 0 1 48 467.0 Tm
+(9. Test and resolve paths) Tj
+/F3 7.5 Tf
+1 0 0 1 56 444.0 Tm
+(# Does the path exist?) Tj
+/F3 7.5 Tf
+1 0 0 1 56 434.0 Tm
+(Test-Path -LiteralPath "C:\\Smart file organizer\\Downloads") Tj
+/F3 7.5 Tf
+1 0 0 1 56 424.0 Tm
+() Tj
+/F3 7.5 Tf
+1 0 0 1 56 414.0 Tm
+(# Is it a directory?) Tj
+/F3 7.5 Tf
+1 0 0 1 56 404.0 Tm
+(Test-Path -LiteralPath "C:\\Smart file organizer\\Downloads" -PathType Container) Tj
+/F3 7.5 Tf
+1 0 0 1 56 394.0 Tm
+() Tj
+/F3 7.5 Tf
+1 0 0 1 56 384.0 Tm
+(# Is it a file?) Tj
+/F3 7.5 Tf
+1 0 0 1 56 374.0 Tm
+(Test-Path -LiteralPath "C:\\Smart file organizer\\main.py" -PathType Leaf) Tj
+/F3 7.5 Tf
+1 0 0 1 56 364.0 Tm
+() Tj
+/F3 7.5 Tf
+1 0 0 1 56 354.0 Tm
+(# Convert a relative path to an absolute path) Tj
+/F3 7.5 Tf
+1 0 0 1 56 344.0 Tm
+(Resolve-Path ".\\Downloads") Tj
+/F3 7.5 Tf
+1 0 0 1 56 334.0 Tm
+() Tj
+/F3 7.5 Tf
+1 0 0 1 56 324.0 Tm
+(# Get detailed item information) Tj
+/F3 7.5 Tf
+1 0 0 1 56 314.0 Tm
+(Get-Item -LiteralPath ".\\Downloads") Tj
+/F1 8.5 Tf
+1 0 0 1 48 304.0 Tm
+() Tj
+/F1 8.5 Tf
+1 0 0 1 48 292.0 Tm
+(Test-Path returns True or False. Resolve-Path is useful for seeing exactly where a relative) Tj
+/F1 8.5 Tf
+1 0 0 1 48 280.0 Tm
+(path points before running a move or delete command.) Tj
+/F2 12 Tf
+1 0 0 1 48 268.0 Tm
+(10. Search for files) Tj
+/F3 7.5 Tf
+1 0 0 1 56 245.0 Tm
+(# Search recursively by extension) Tj
+/F3 7.5 Tf
+1 0 0 1 56 235.0 Tm
+(Get-ChildItem -LiteralPath "C:\\Smart file organizer" -Recurse -File -Filter "*.pdf") Tj
+/F3 7.5 Tf
+1 0 0 1 56 225.0 Tm
+() Tj
+/F3 7.5 Tf
+1 0 0 1 56 215.0 Tm
+(# Search by exact name) Tj
+/F3 7.5 Tf
+1 0 0 1 56 205.0 Tm
+(Get-ChildItem -LiteralPath "C:\\Smart file organizer" -Recurse -File -Filter "report.pdf") Tj
+/F3 7.5 Tf
+1 0 0 1 56 195.0 Tm
+() Tj
+/F3 7.5 Tf
+1 0 0 1 56 185.0 Tm
+(# Search with a pattern) Tj
+/F3 7.5 Tf
+1 0 0 1 56 175.0 Tm
+(Get-ChildItem -LiteralPath ".\\Downloads" -Recurse -File |) Tj
+/F3 7.5 Tf
+1 0 0 1 56 165.0 Tm
+(    Where-Object { $_.Name -like "*.txt" }) Tj
+/F3 7.5 Tf
+1 0 0 1 56 155.0 Tm
+() Tj
+/F3 7.5 Tf
+1 0 0 1 56 145.0 Tm
+(# Search file contents) Tj
+/F3 7.5 Tf
+1 0 0 1 56 135.0 Tm
+(Select-String -Path ".\\*.py" -Pattern "Organizer") Tj
+/F1 8.5 Tf
+1 0 0 1 48 125.0 Tm
+() Tj
+/F1 8.5 Tf
+1 0 0 1 48 113.0 Tm
+(Use -Filter where possible because it filters during enumeration. Where-Object filters after) Tj
+/F1 8.5 Tf
+1 0 0 1 48 101.0 Tm
+(items have been returned.) Tj
+/F2 12 Tf
+1 0 0 1 48 89.0 Tm
+(11. Copy files and folders) Tj
+/F3 7.5 Tf
+1 0 0 1 56 66.0 Tm
+(# Copy one file) Tj
+ET
+endstream
+endobj
+11 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R /F2 4 0 R /F3 5 0 R >> >> /Contents 10 0 R >>
+endobj
+12 0 obj
+<< /Length 5025 >>
+stream
+BT
+/F3 7.5 Tf
+1 0 0 1 56 792.0 Tm
+(Copy-Item -LiteralPath ".\\report.pdf" -Destination ".\\Backup\\report.pdf") Tj
+/F3 7.5 Tf
+1 0 0 1 56 782.0 Tm
+() Tj
+/F3 7.5 Tf
+1 0 0 1 56 772.0 Tm
+(# Copy into an existing directory) Tj
+/F3 7.5 Tf
+1 0 0 1 56 762.0 Tm
+(Copy-Item -LiteralPath ".\\report.pdf" -Destination ".\\Backup") Tj
+/F3 7.5 Tf
+1 0 0 1 56 752.0 Tm
+() Tj
+/F3 7.5 Tf
+1 0 0 1 56 742.0 Tm
+(# Copy a directory and its contents) Tj
+/F3 7.5 Tf
+1 0 0 1 56 732.0 Tm
+(Copy-Item -LiteralPath ".\\Downloads" -Destination ".\\Backup\\Downloads" -Recurse) Tj
+/F3 7.5 Tf
+1 0 0 1 56 722.0 Tm
+() Tj
+/F3 7.5 Tf
+1 0 0 1 56 712.0 Tm
+(# Overwrite an existing destination) Tj
+/F3 7.5 Tf
+1 0 0 1 56 702.0 Tm
+(Copy-Item -LiteralPath ".\\report.pdf" -Destination ".\\Backup\\report.pdf" -Force) Tj
+/F1 8.5 Tf
+1 0 0 1 48 692.0 Tm
+() Tj
+/F1 8.5 Tf
+1 0 0 1 48 680.0 Tm
+(Copy-Item leaves the source in place. The destination parent directory may need to be created) Tj
+/F1 8.5 Tf
+1 0 0 1 48 668.0 Tm
+(first with New-Item -ItemType Directory -Force.) Tj
+/F2 12 Tf
+1 0 0 1 48 656.0 Tm
+(12. Move and rename) Tj
+/F3 7.5 Tf
+1 0 0 1 56 633.0 Tm
+(# Rename in the same directory) Tj
+/F3 7.5 Tf
+1 0 0 1 56 623.0 Tm
+(Move-Item -LiteralPath ".\\old.txt" -Destination ".\\new.txt") Tj
+/F3 7.5 Tf
+1 0 0 1 56 613.0 Tm
+() Tj
+/F3 7.5 Tf
+1 0 0 1 56 603.0 Tm
+(# Move a file into another directory) Tj
+/F3 7.5 Tf
+1 0 0 1 56 593.0 Tm
+(Move-Item -LiteralPath ".\\report.pdf" -Destination ".\\Documents") Tj
+/F3 7.5 Tf
+1 0 0 1 56 583.0 Tm
+() Tj
+/F3 7.5 Tf
+1 0 0 1 56 573.0 Tm
+(# Move to a new full destination name) Tj
+/F3 7.5 Tf
+1 0 0 1 56 563.0 Tm
+(Move-Item -LiteralPath ".\\report.pdf" -Destination ".\\Documents\\report.pdf") Tj
+/F3 7.5 Tf
+1 0 0 1 56 553.0 Tm
+() Tj
+/F3 7.5 Tf
+1 0 0 1 56 543.0 Tm
+(# Move a directory) Tj
+/F3 7.5 Tf
+1 0 0 1 56 533.0 Tm
+(Move-Item -LiteralPath ".\\OldFolder" -Destination ".\\NewFolder") Tj
+/F1 8.5 Tf
+1 0 0 1 48 523.0 Tm
+() Tj
+/F1 8.5 Tf
+1 0 0 1 48 511.0 Tm
+(Move-Item both moves and renames. It generally does not create missing destination parents, so) Tj
+/F1 8.5 Tf
+1 0 0 1 48 499.0 Tm
+( create them first.) Tj
+/F3 7.5 Tf
+1 0 0 1 56 487.0 Tm
+(New-Item -ItemType Directory -Path ".\\Documents" -Force) Tj
+/F3 7.5 Tf
+1 0 0 1 56 477.0 Tm
+(Move-Item -LiteralPath ".\\report.pdf" -Destination ".\\Documents\\report.pdf") Tj
+/F1 8.5 Tf
+1 0 0 1 48 467.0 Tm
+() Tj
+/F2 12 Tf
+1 0 0 1 48 455.0 Tm
+(13. Delete safely) Tj
+/F3 7.5 Tf
+1 0 0 1 56 432.0 Tm
+(# Delete one file) Tj
+/F3 7.5 Tf
+1 0 0 1 56 422.0 Tm
+(Remove-Item -LiteralPath ".\\temporary.txt") Tj
+/F3 7.5 Tf
+1 0 0 1 56 412.0 Tm
+() Tj
+/F3 7.5 Tf
+1 0 0 1 56 402.0 Tm
+(# Delete an empty directory) Tj
+/F3 7.5 Tf
+1 0 0 1 56 392.0 Tm
+(Remove-Item -LiteralPath ".\\EmptyFolder") Tj
+/F3 7.5 Tf
+1 0 0 1 56 382.0 Tm
+() Tj
+/F3 7.5 Tf
+1 0 0 1 56 372.0 Tm
+(# Delete a directory and its contents) Tj
+/F3 7.5 Tf
+1 0 0 1 56 362.0 Tm
+(Remove-Item -LiteralPath ".\\OldFolder" -Recurse) Tj
+/F3 7.5 Tf
+1 0 0 1 56 352.0 Tm
+() Tj
+/F3 7.5 Tf
+1 0 0 1 56 342.0 Tm
+(# Force deletion of hidden/read-only items) Tj
+/F3 7.5 Tf
+1 0 0 1 56 332.0 Tm
+(Remove-Item -LiteralPath ".\\OldFolder" -Recurse -Force) Tj
+/F1 8.5 Tf
+1 0 0 1 48 322.0 Tm
+() Tj
+/F1 8.5 Tf
+1 0 0 1 48 310.0 Tm
+(Remove-Item is destructive. Before deleting, inspect the exact resolved path with Resolve-Path) Tj
+/F1 8.5 Tf
+1 0 0 1 48 298.0 Tm
+( and list its contents. Never use broad recursive deletion against a repository root, home) Tj
+/F1 8.5 Tf
+1 0 0 1 48 286.0 Tm
+(directory, or unresolved variable.) Tj
+/F3 7.5 Tf
+1 0 0 1 56 274.0 Tm
+($target = Resolve-Path ".\\OldFolder") Tj
+/F3 7.5 Tf
+1 0 0 1 56 264.0 Tm
+(Write-Host "About to delete: $target") Tj
+/F3 7.5 Tf
+1 0 0 1 56 254.0 Tm
+(Get-ChildItem -LiteralPath $target -Recurse) Tj
+/F3 7.5 Tf
+1 0 0 1 56 244.0 Tm
+(# Only after checking the output:) Tj
+/F3 7.5 Tf
+1 0 0 1 56 234.0 Tm
+(Remove-Item -LiteralPath $target -Recurse) Tj
+/F1 8.5 Tf
+1 0 0 1 48 224.0 Tm
+() Tj
+/F2 12 Tf
+1 0 0 1 48 212.0 Tm
+(14. Rename versus move) Tj
+/F1 8.5 Tf
+1 0 0 1 48 189.0 Tm
+(If source and destination are in the same directory, Move-Item acts as a rename. If the) Tj
+/F1 8.5 Tf
+1 0 0 1 48 177.0 Tm
+(destination is another directory, it moves the item. The command is the same; the destination) Tj
+/F1 8.5 Tf
+1 0 0 1 48 165.0 Tm
+(path determines the operation.) Tj
+/F3 7.5 Tf
+1 0 0 1 56 153.0 Tm
+(Move-Item ".\\draft.txt" ".\\final.txt"                 # rename) Tj
+/F3 7.5 Tf
+1 0 0 1 56 143.0 Tm
+(Move-Item ".\\final.txt" ".\\Documents\\final.txt"      # move) Tj
+/F1 8.5 Tf
+1 0 0 1 48 133.0 Tm
+() Tj
+/F2 12 Tf
+1 0 0 1 48 121.0 Tm
+(15. Copy/move behavior and conflicts) Tj
+/F1 8.5 Tf
+1 0 0 1 48 98.0 Tm
+(A destination path can already exist. Your Smart File Organizer checks destination.is_file\(\)) Tj
+/F1 8.5 Tf
+1 0 0 1 48 86.0 Tm
+(and returns Skipped instead of overwriting a file. PowerShell commands may need -Force to) Tj
+/F1 8.5 Tf
+1 0 0 1 48 74.0 Tm
+(overwrite, but use it only when overwriting is intentional.) Tj
+/F3 7.5 Tf
+1 0 0 1 56 62.0 Tm
+(Test-Path -LiteralPath ".\\Documents\\report.pdf") Tj
+ET
+endstream
+endobj
+13 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R /F2 4 0 R /F3 5 0 R >> >> /Contents 12 0 R >>
+endobj
+14 0 obj
+<< /Length 4965 >>
+stream
+BT
+/F3 7.5 Tf
+1 0 0 1 56 792.0 Tm
+(Copy-Item ".\\report.pdf" ".\\Documents\\report.pdf" -Force) Tj
+/F1 8.5 Tf
+1 0 0 1 48 782.0 Tm
+() Tj
+/F1 8.5 Tf
+1 0 0 1 48 770.0 Tm
+(A safe application should decide a conflict policy: skip, overwrite, rename with a counter, or) Tj
+/F1 8.5 Tf
+1 0 0 1 48 758.0 Tm
+( ask the user. The organizer currently uses skip for an existing destination and generates) Tj
+/F1 8.5 Tf
+1 0 0 1 48 746.0 Tm
+(names such as report_1.pdf for duplicate planned destinations.) Tj
+/F2 12 Tf
+1 0 0 1 48 734.0 Tm
+(16. Windows path special cases) Tj
+/F1 8.5 Tf
+1 0 0 1 48 711.0 Tm
+(A drive-relative path such as C:folder is not the same as C:\\folder. C:\\folder is rooted at) Tj
+/F1 8.5 Tf
+1 0 0 1 48 699.0 Tm
+(the C drive. C:folder is relative to the current directory associated with drive C and should) Tj
+/F1 8.5 Tf
+1 0 0 1 48 687.0 Tm
+(generally be avoided in scripts.) Tj
+/F3 7.5 Tf
+1 0 0 1 56 675.0 Tm
+(C:\\folder\\file.txt       # absolute on drive C) Tj
+/F3 7.5 Tf
+1 0 0 1 56 665.0 Tm
+(C:folder\\file.txt        # drive-relative; avoid unless intentional) Tj
+/F3 7.5 Tf
+1 0 0 1 56 655.0 Tm
+(.\\folder\\file.txt        # child of current directory) Tj
+/F3 7.5 Tf
+1 0 0 1 56 645.0 Tm
+(..\\folder\\file.txt       # child of parent directory) Tj
+/F3 7.5 Tf
+1 0 0 1 56 635.0 Tm
+(\\\\server\\share\\file.txt  # UNC network path) Tj
+/F1 8.5 Tf
+1 0 0 1 48 625.0 Tm
+() Tj
+/F1 8.5 Tf
+1 0 0 1 48 613.0 Tm
+(A UNC path begins with two backslashes and identifies a network share. Quoted paths may) Tj
+/F1 8.5 Tf
+1 0 0 1 48 601.0 Tm
+(contain spaces.) Tj
+/F2 12 Tf
+1 0 0 1 48 589.0 Tm
+(17. Python pathlib: the recommended Python API) Tj
+/F1 8.5 Tf
+1 0 0 1 48 566.0 Tm
+(For Python code, pathlib.Path is clearer and safer than manually concatenating strings.) Tj
+/F3 7.5 Tf
+1 0 0 1 56 554.0 Tm
+(from pathlib import Path) Tj
+/F3 7.5 Tf
+1 0 0 1 56 544.0 Tm
+() Tj
+/F3 7.5 Tf
+1 0 0 1 56 534.0 Tm
+(source = Path\(r"C:\\Smart file organizer\\Downloads"\)) Tj
+/F3 7.5 Tf
+1 0 0 1 56 524.0 Tm
+(file_path = source / "report.pdf") Tj
+/F3 7.5 Tf
+1 0 0 1 56 514.0 Tm
+(destination = source / "organized" / "Documents" / file_path.name) Tj
+/F3 7.5 Tf
+1 0 0 1 56 504.0 Tm
+() Tj
+/F3 7.5 Tf
+1 0 0 1 56 494.0 Tm
+(print\(file_path\)) Tj
+/F3 7.5 Tf
+1 0 0 1 56 484.0 Tm
+(print\(file_path.exists\(\)\)) Tj
+/F3 7.5 Tf
+1 0 0 1 56 474.0 Tm
+(print\(file_path.is_file\(\)\)) Tj
+/F3 7.5 Tf
+1 0 0 1 56 464.0 Tm
+(print\(source.is_dir\(\)\)) Tj
+/F1 8.5 Tf
+1 0 0 1 48 454.0 Tm
+() Tj
+/F1 8.5 Tf
+1 0 0 1 48 442.0 Tm
+(The / operator joins path components. Path handles the platform separator and avoids many) Tj
+/F1 8.5 Tf
+1 0 0 1 48 430.0 Tm
+(slash and escaping mistakes.) Tj
+/F3 7.5 Tf
+1 0 0 1 56 418.0 Tm
+(folder = Path\("example"\)) Tj
+/F3 7.5 Tf
+1 0 0 1 56 408.0 Tm
+(folder.mkdir\(parents=True, exist_ok=True\)) Tj
+/F3 7.5 Tf
+1 0 0 1 56 398.0 Tm
+() Tj
+/F3 7.5 Tf
+1 0 0 1 56 388.0 Tm
+(file_path = folder / "notes.txt") Tj
+/F3 7.5 Tf
+1 0 0 1 56 378.0 Tm
+(file_path.write_text\("Hello\\n", encoding="utf-8"\)) Tj
+/F3 7.5 Tf
+1 0 0 1 56 368.0 Tm
+(print\(file_path.read_text\(encoding="utf-8"\)\)) Tj
+/F3 7.5 Tf
+1 0 0 1 56 358.0 Tm
+() Tj
+/F3 7.5 Tf
+1 0 0 1 56 348.0 Tm
+(for item in folder.iterdir\(\):) Tj
+/F3 7.5 Tf
+1 0 0 1 56 338.0 Tm
+(    print\(item\)) Tj
+/F3 7.5 Tf
+1 0 0 1 56 328.0 Tm
+() Tj
+/F3 7.5 Tf
+1 0 0 1 56 318.0 Tm
+(for item in folder.rglob\("*"\):) Tj
+/F3 7.5 Tf
+1 0 0 1 56 308.0 Tm
+(    if item.is_file\(\):) Tj
+/F3 7.5 Tf
+1 0 0 1 56 298.0 Tm
+(        print\(item\)) Tj
+/F1 8.5 Tf
+1 0 0 1 48 288.0 Tm
+() Tj
+/F2 12 Tf
+1 0 0 1 48 276.0 Tm
+(18. Python path checks and operations) Tj
+/F3 7.5 Tf
+1 0 0 1 56 253.0 Tm
+(from pathlib import Path) Tj
+/F3 7.5 Tf
+1 0 0 1 56 243.0 Tm
+(import shutil) Tj
+/F3 7.5 Tf
+1 0 0 1 56 233.0 Tm
+() Tj
+/F3 7.5 Tf
+1 0 0 1 56 223.0 Tm
+(path = Path\(r"C:\\Smart file organizer\\Downloads\\report.pdf"\)) Tj
+/F3 7.5 Tf
+1 0 0 1 56 213.0 Tm
+() Tj
+/F3 7.5 Tf
+1 0 0 1 56 203.0 Tm
+(path.exists\(\)          # file or directory exists) Tj
+/F3 7.5 Tf
+1 0 0 1 56 193.0 Tm
+(path.is_file\(\)         # path is a file) Tj
+/F3 7.5 Tf
+1 0 0 1 56 183.0 Tm
+(path.is_dir\(\)          # path is a directory) Tj
+/F3 7.5 Tf
+1 0 0 1 56 173.0 Tm
+(path.name              # report.pdf) Tj
+/F3 7.5 Tf
+1 0 0 1 56 163.0 Tm
+(path.stem              # report) Tj
+/F3 7.5 Tf
+1 0 0 1 56 153.0 Tm
+(path.suffix            # .pdf) Tj
+/F3 7.5 Tf
+1 0 0 1 56 143.0 Tm
+(path.parent            # containing directory) Tj
+/F3 7.5 Tf
+1 0 0 1 56 133.0 Tm
+(path.resolve\(\)         # absolute normalized path) Tj
+/F3 7.5 Tf
+1 0 0 1 56 123.0 Tm
+() Tj
+/F3 7.5 Tf
+1 0 0 1 56 113.0 Tm
+(shutil.copy2\(path, Path\("backup"\) / path.name\)) Tj
+/F3 7.5 Tf
+1 0 0 1 56 103.0 Tm
+(shutil.move\(str\(path\), str\(Path\("organized"\) / path.name\)\)) Tj
+/F1 8.5 Tf
+1 0 0 1 48 93.0 Tm
+() Tj
+/F1 8.5 Tf
+1 0 0 1 48 81.0 Tm
+(shutil.move is used by your FileMover. pathlib represents paths; shutil performs high-level) Tj
+/F1 8.5 Tf
+1 0 0 1 48 69.0 Tm
+(file operations. Convert to str when an older API expects strings.) Tj
+ET
+endstream
+endobj
+15 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R /F2 4 0 R /F3 5 0 R >> >> /Contents 14 0 R >>
+endobj
+16 0 obj
+<< /Length 5226 >>
+stream
+BT
+/F2 12 Tf
+1 0 0 1 48 792.0 Tm
+(19. Applying paths to Smart File Organizer) Tj
+/F3 7.5 Tf
+1 0 0 1 56 769.0 Tm
+(# Default behavior) Tj
+/F3 7.5 Tf
+1 0 0 1 56 759.0 Tm
+(uv run python main.py) Tj
+/F3 7.5 Tf
+1 0 0 1 56 749.0 Tm
+() Tj
+/F3 7.5 Tf
+1 0 0 1 56 739.0 Tm
+(# Explicit source and destination) Tj
+/F3 7.5 Tf
+1 0 0 1 56 729.0 Tm
+(uv run python main.py "C:\\Smart file organizer\\move_case" `) Tj
+/F3 7.5 Tf
+1 0 0 1 56 719.0 Tm
+(    "C:\\Smart file organizer\\Downloads\\organized") Tj
+/F1 8.5 Tf
+1 0 0 1 48 709.0 Tm
+() Tj
+/F1 8.5 Tf
+1 0 0 1 48 697.0 Tm
+(The first path is scanned recursively. The second path receives category directories such as) Tj
+/F1 8.5 Tf
+1 0 0 1 48 685.0 Tm
+(Documents and Code. The destination is excluded only when it is inside the source tree. If it) Tj
+/F1 8.5 Tf
+1 0 0 1 48 673.0 Tm
+(is outside the source, the scanner cannot encounter it during the scan.) Tj
+/F3 7.5 Tf
+1 0 0 1 56 661.0 Tm
+(from organizer import Organizer) Tj
+/F3 7.5 Tf
+1 0 0 1 56 651.0 Tm
+() Tj
+/F3 7.5 Tf
+1 0 0 1 56 641.0 Tm
+(organizer = Organizer\() Tj
+/F3 7.5 Tf
+1 0 0 1 56 631.0 Tm
+(    root_directory=r"C:\\Smart file organizer\\move_case",) Tj
+/F3 7.5 Tf
+1 0 0 1 56 621.0 Tm
+(    output_directory=r"C:\\Smart file organizer\\Downloads\\organized",) Tj
+/F3 7.5 Tf
+1 0 0 1 56 611.0 Tm
+(\)) Tj
+/F3 7.5 Tf
+1 0 0 1 56 601.0 Tm
+(operations = organizer.build_plan\(\)) Tj
+/F3 7.5 Tf
+1 0 0 1 56 591.0 Tm
+(organizer.preview_plan\(operations\)) Tj
+/F1 8.5 Tf
+1 0 0 1 48 581.0 Tm
+() Tj
+/F2 12 Tf
+1 0 0 1 48 569.0 Tm
+(20. Common path mistakes) Tj
+/F1 8.5 Tf
+1 0 0 1 48 546.0 Tm
+(1. Forgetting quotes around paths with spaces. 2. Running from a different current directory) Tj
+/F1 8.5 Tf
+1 0 0 1 48 534.0 Tm
+(and expecting a relative path to be relative to the script. 3. Using a Python backslash string) Tj
+/F1 8.5 Tf
+1 0 0 1 48 522.0 Tm
+( without raw/doubled backslashes. 4. Assuming Windows case behavior works on Linux. 5. Passing) Tj
+/F1 8.5 Tf
+1 0 0 1 48 510.0 Tm
+( a file where a directory is expected. 6. Deleting before inspecting the resolved path. 7.) Tj
+/F1 8.5 Tf
+1 0 0 1 48 498.0 Tm
+(Using a destination inside the source without excluding it.) Tj
+/F3 7.5 Tf
+1 0 0 1 56 486.0 Tm
+(# Check before organizing) Tj
+/F3 7.5 Tf
+1 0 0 1 56 476.0 Tm
+($source = Resolve-Path "C:\\Smart file organizer\\move_case") Tj
+/F3 7.5 Tf
+1 0 0 1 56 466.0 Tm
+(Test-Path -LiteralPath $source -PathType Container) Tj
+/F3 7.5 Tf
+1 0 0 1 56 456.0 Tm
+() Tj
+/F3 7.5 Tf
+1 0 0 1 56 446.0 Tm
+(# Check destination spelling and location) Tj
+/F3 7.5 Tf
+1 0 0 1 56 436.0 Tm
+($destination = [System.IO.Path]::GetFullPath\() Tj
+/F3 7.5 Tf
+1 0 0 1 56 426.0 Tm
+(    "C:\\Smart file organizer\\Downloads\\organized") Tj
+/F3 7.5 Tf
+1 0 0 1 56 416.0 Tm
+(\)) Tj
+/F3 7.5 Tf
+1 0 0 1 56 406.0 Tm
+(Write-Host $destination) Tj
+/F1 8.5 Tf
+1 0 0 1 48 396.0 Tm
+() Tj
+/F2 12 Tf
+1 0 0 1 48 384.0 Tm
+(21. Quick command table) Tj
+/F3 7.5 Tf
+1 0 0 1 56 361.0 Tm
+(Get-Location                         # current directory) Tj
+/F3 7.5 Tf
+1 0 0 1 56 351.0 Tm
+(Set-Location "C:\\folder"             # change directory) Tj
+/F3 7.5 Tf
+1 0 0 1 56 341.0 Tm
+(Get-ChildItem                        # list items) Tj
+/F3 7.5 Tf
+1 0 0 1 56 331.0 Tm
+(New-Item -ItemType Directory -Path .\\x -Force) Tj
+/F3 7.5 Tf
+1 0 0 1 56 321.0 Tm
+(New-Item -ItemType File -Path .\\x.txt) Tj
+/F3 7.5 Tf
+1 0 0 1 56 311.0 Tm
+(Set-Content .\\x.txt "text"           # overwrite/write) Tj
+/F3 7.5 Tf
+1 0 0 1 56 301.0 Tm
+(Add-Content .\\x.txt "more"           # append) Tj
+/F3 7.5 Tf
+1 0 0 1 56 291.0 Tm
+(Get-Content .\\x.txt                  # read) Tj
+/F3 7.5 Tf
+1 0 0 1 56 281.0 Tm
+(Test-Path .\\x.txt                    # check existence) Tj
+/F3 7.5 Tf
+1 0 0 1 56 271.0 Tm
+(Resolve-Path .\\x.txt                 # show absolute path) Tj
+/F3 7.5 Tf
+1 0 0 1 56 261.0 Tm
+(Copy-Item .\\a.txt .\\backup\\) Tj
+/F3 7.5 Tf
+1 0 0 1 56 251.0 Tm
+(Move-Item .\\a.txt .\\backup\\) Tj
+/F3 7.5 Tf
+1 0 0 1 56 241.0 Tm
+(Remove-Item .\\a.txt) Tj
+/F3 7.5 Tf
+1 0 0 1 56 231.0 Tm
+(Get-ChildItem . -Recurse -File -Filter "*.pdf") Tj
+/F1 8.5 Tf
+1 0 0 1 48 221.0 Tm
+() Tj
+/F2 12 Tf
+1 0 0 1 48 209.0 Tm
+(22. Safe workflow checklist) Tj
+/F1 8.5 Tf
+1 0 0 1 48 186.0 Tm
+(Before an operation: print the current location, write or resolve the full source path, check) Tj
+/F1 8.5 Tf
+1 0 0 1 48 174.0 Tm
+(that the source exists and is the expected type, create the destination parent, preview the) Tj
+/F1 8.5 Tf
+1 0 0 1 48 162.0 Tm
+(source and destination, then copy or move. For deletion, inspect the exact target and use a) Tj
+/F1 8.5 Tf
+1 0 0 1 48 150.0 Tm
+(narrowly scoped literal path.) Tj
+/F3 7.5 Tf
+1 0 0 1 56 138.0 Tm
+(Get-Location) Tj
+/F3 7.5 Tf
+1 0 0 1 56 128.0 Tm
+(Resolve-Path ".\\Downloads") Tj
+/F3 7.5 Tf
+1 0 0 1 56 118.0 Tm
+(Test-Path ".\\Downloads" -PathType Container) Tj
+/F3 7.5 Tf
+1 0 0 1 56 108.0 Tm
+(New-Item -ItemType Directory -Path ".\\Backup" -Force) Tj
+/F3 7.5 Tf
+1 0 0 1 56 98.0 Tm
+(Get-ChildItem ".\\Downloads" -File) Tj
+/F1 8.5 Tf
+1 0 0 1 48 88.0 Tm
+() Tj
+/F1 8.5 Tf
+1 0 0 1 48 76.0 Tm
+(The central rule is: understand what a path resolves to before changing files. Use absolute) Tj
+/F1 8.5 Tf
+1 0 0 1 48 64.0 Tm
+(paths for important automation, quoted paths for spaces, pathlib in Python, and preview) Tj
+ET
+endstream
+endobj
+17 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R /F2 4 0 R /F3 5 0 R >> >> /Contents 16 0 R >>
+endobj
+18 0 obj
+<< /Length 75 >>
+stream
+BT
+/F1 8.5 Tf
+1 0 0 1 48 792.0 Tm
+(operations before executing them.) Tj
+ET
+endstream
+endobj
+19 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R /F2 4 0 R /F3 5 0 R >> >> /Contents 18 0 R >>
+endobj
+xref
+0 20
+0000000000 65535 f 
+0000000015 00000 n 
+0000000064 00000 n 
+0000000162 00000 n 
+0000000232 00000 n 
+0000000307 00000 n 
+0000000375 00000 n 
+0000005336 00000 n 
+0000005482 00000 n 
+0000010006 00000 n 
+0000010152 00000 n 
+0000014588 00000 n 
+0000014736 00000 n 
+0000019814 00000 n 
+0000019962 00000 n 
+0000024980 00000 n 
+0000025128 00000 n 
+0000030407 00000 n 
+0000030555 00000 n 
+0000030681 00000 n 
+trailer
+<< /Size 20 /Root 1 0 R >>
+startxref
+30829
+%%EOF

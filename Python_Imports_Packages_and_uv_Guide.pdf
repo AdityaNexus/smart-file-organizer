@@ -1,0 +1,881 @@
+%PDF-1.4
+%‚„œ”
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [7 0 R 9 0 R 11 0 R 13 0 R 15 0 R 17 0 R 19 0 R] /Count 7 >>
+endobj
+3 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+endobj
+4 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold >>
+endobj
+5 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Courier >>
+endobj
+6 0 obj
+<< /Length 846 >>
+stream
+BT
+/F2 17 Tf
+1 0 0 1 48 792 Tm
+(Python Imports, Packages, sys.path, pytest, and uv) Tj
+/F1 10 Tf
+1 0 0 1 48 768 Tm
+(A complete guide for the Smart File Organizer project) Tj
+/F1 9 Tf
+1 0 0 1 48 738 Tm
+(This guide explains modules, packages, sys.path, -m, PYTHONPATH, pytest, uv, and pyproject.toml.) Tj
+1 0 0 1 48 720 Tm
+(It includes current-project behavior, direct-execution cases, and the packaged-project workflow.) Tj
+/F2 12 Tf
+1 0 0 1 48 680 Tm
+(Quick model) Tj
+/F3 8 Tf
+1 0 0 1 56 660 Tm
+(script or module -> sys.path -> import search -> selected module) Tj
+/F1 9 Tf
+1 0 0 1 48 620 Tm
+(Key rule: Python does not search the whole repository automatically.) Tj
+1 0 0 1 48 606 Tm
+(It searches directories listed in sys.path, including locations added by PYTHONPATH,) Tj
+1 0 0 1 48 592 Tm
+(pytest configuration, or an installed package.) Tj
+ET
+endstream
+endobj
+7 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R /F2 4 0 R /F3 5 0 R >> >> /Contents 6 0 R >>
+endobj
+8 0 obj
+<< /Length 788 >>
+stream
+BT
+/F2 14 Tf
+1 0 0 1 48 792 Tm
+(Contents overview) Tj
+/F1 9 Tf
+1 0 0 1 48 768 Tm
+(1. Current project and original import error) Tj
+1 0 0 1 48 752 Tm
+(2. Modules, packages, and sys.path) Tj
+1 0 0 1 48 736 Tm
+(3. Direct execution, -m, pytest, and PYTHONPATH) Tj
+1 0 0 1 48 720 Tm
+(4. __pycache__, pyproject.toml, uv, and editable installs) Tj
+1 0 0 1 48 704 Tm
+(5. src layout, package imports, and working-directory paths) Tj
+1 0 0 1 48 688 Tm
+(6. Comparisons, command reference, and troubleshooting) Tj
+/F2 12 Tf
+1 0 0 1 48 644 Tm
+(Current project commands) Tj
+/F3 8 Tf
+1 0 0 1 56 624 Tm
+(uv run python -m pytest test\test_rule_engine.py) Tj
+1 0 0 1 56 610 Tm
+(uv run pytest test\test_rule_engine.py) Tj
+1 0 0 1 56 596 Tm
+($env:PYTHONPATH='.'; uv run python test\test_rule_engine.py) Tj
+ET
+endstream
+endobj
+9 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R /F2 4 0 R /F3 5 0 R >> >> /Contents 8 0 R >>
+endobj
+10 0 obj
+<< /Length 4442 >>
+stream
+BT
+/F1 9 Tf
+1 0 0 1 48 792.0 Tm
+( regular package. Modern Python may allow the command without it as a namespace package, but) Tj
+/F1 9 Tf
+1 0 0 1 48 780.0 Tm
+( adding it improves compatibility with tools and makes the intent explicit.) Tj
+/F2 12 Tf
+1 0 0 1 48 768.0 Tm
+(Running -m from the wrong directory) Tj
+/F3 8 Tf
+1 0 0 1 56 746.0 Tm
+(cd "C:\\Smart file organizer\\test") Tj
+/F3 8 Tf
+1 0 0 1 56 735.0 Tm
+(uv run python -m test_rule_engine) Tj
+/F1 9 Tf
+1 0 0 1 48 724.0 Tm
+() Tj
+/F1 9 Tf
+1 0 0 1 48 712.0 Tm
+(This can find test_rule_engine.py in the current test directory, but it does not necessarily) Tj
+/F1 9 Tf
+1 0 0 1 48 700.0 Tm
+( make the parent project root importable. Running the dotted command from the project root) Tj
+/F1 9 Tf
+1 0 0 1 48 688.0 Tm
+(is the reliable form:) Tj
+/F3 8 Tf
+1 0 0 1 56 676.0 Tm
+(cd "C:\\Smart file organizer") Tj
+/F3 8 Tf
+1 0 0 1 56 665.0 Tm
+(uv run python -m test.test_rule_engine) Tj
+/F1 9 Tf
+1 0 0 1 48 654.0 Tm
+() Tj
+/F2 17 Tf
+1 0 0 1 48 642.0 Tm
+(8. pytest commands and why they differ) Tj
+/F3 8 Tf
+1 0 0 1 56 609.0 Tm
+(uv run pytest test\\test_rule_engine.py) Tj
+/F3 8 Tf
+1 0 0 1 56 598.0 Tm
+(uv run python -m pytest test\\test_rule_engine.py) Tj
+/F1 9 Tf
+1 0 0 1 48 587.0 Tm
+() Tj
+/F1 9 Tf
+1 0 0 1 48 575.0 Tm
+(The first command runs the pytest executable. The second starts Python and asks it to run) Tj
+/F1 9 Tf
+1 0 0 1 48 563.0 Tm
+(the pytest module. The -m form makes Python's module execution and current-directory) Tj
+/F1 9 Tf
+1 0 0 1 48 551.0 Tm
+(behavior explicit.) Tj
+/F1 9 Tf
+1 0 0 1 48 539.0 Tm
+(The pytest.ini file in this project contains:) Tj
+/F3 8 Tf
+1 0 0 1 56 527.0 Tm
+([pytest]) Tj
+/F3 8 Tf
+1 0 0 1 56 516.0 Tm
+(pythonpath = .) Tj
+/F1 9 Tf
+1 0 0 1 48 505.0 Tm
+() Tj
+/F1 9 Tf
+1 0 0 1 48 493.0 Tm
+(This tells pytest to add the project root to its import path. It affects pytest runs, not) Tj
+/F1 9 Tf
+1 0 0 1 48 481.0 Tm
+(direct commands such as uv run python test\\test_rule_engine.py.) Tj
+/F1 9 Tf
+1 0 0 1 48 469.0 Tm
+(The recommended current-project command is:) Tj
+/F3 8 Tf
+1 0 0 1 56 457.0 Tm
+(uv run python -m pytest test\\test_rule_engine.py) Tj
+/F1 9 Tf
+1 0 0 1 48 446.0 Tm
+() Tj
+/F1 9 Tf
+1 0 0 1 48 434.0 Tm
+(or, with pytest.ini present:) Tj
+/F3 8 Tf
+1 0 0 1 56 422.0 Tm
+(uv run pytest test\\test_rule_engine.py) Tj
+/F1 9 Tf
+1 0 0 1 48 411.0 Tm
+() Tj
+/F1 9 Tf
+1 0 0 1 48 399.0 Tm
+(A test file should define functions whose names start with test_. Top-level print statements) Tj
+/F1 9 Tf
+1 0 0 1 48 387.0 Tm
+( are executed during import/collection but are not collected as tests. That is why pytest) Tj
+/F1 9 Tf
+1 0 0 1 48 375.0 Tm
+(can report collected 0 items.) Tj
+/F2 17 Tf
+1 0 0 1 48 363.0 Tm
+(9. The test-specific issues encountered) Tj
+/F1 9 Tf
+1 0 0 1 48 330.0 Tm
+(The test once called item.get_file_name\(\), but FileItem defines extract_file_name\(\). Those) Tj
+/F1 9 Tf
+1 0 0 1 48 318.0 Tm
+(names must match.) Tj
+/F3 8 Tf
+1 0 0 1 56 306.0 Tm
+(print\(item.extract_file_name\(\), "->", engine.get_category\(item\)\)) Tj
+/F1 9 Tf
+1 0 0 1 48 295.0 Tm
+() Tj
+/F1 9 Tf
+1 0 0 1 48 283.0 Tm
+(The rule engine also returned lowercase other while the test expected Others. The default) Tj
+/F1 9 Tf
+1 0 0 1 48 271.0 Tm
+(category should be made consistent, for example:) Tj
+/F3 8 Tf
+1 0 0 1 56 259.0 Tm
+(return self.extension_rules.get\(extension, "Others"\)) Tj
+/F1 9 Tf
+1 0 0 1 48 248.0 Tm
+() Tj
+/F2 17 Tf
+1 0 0 1 48 236.0 Tm
+(10. What is PYTHONPATH?) Tj
+/F1 9 Tf
+1 0 0 1 48 203.0 Tm
+(PYTHONPATH is an environment variable containing extra directories that Python adds to) Tj
+/F1 9 Tf
+1 0 0 1 48 191.0 Tm
+(sys.path. From the project root:) Tj
+/F3 8 Tf
+1 0 0 1 56 179.0 Tm
+($env:PYTHONPATH="C:\\Smart file organizer") Tj
+/F1 9 Tf
+1 0 0 1 48 168.0 Tm
+() Tj
+/F1 9 Tf
+1 0 0 1 48 156.0 Tm
+(After that, Python commands in the same PowerShell session can import root modules even when) Tj
+/F1 9 Tf
+1 0 0 1 48 144.0 Tm
+( the script is elsewhere. You can set it to the current directory with $env:PYTHONPATH='.') Tj
+/F1 9 Tf
+1 0 0 1 48 132.0 Tm
+(from the project root.) Tj
+/F1 9 Tf
+1 0 0 1 48 120.0 Tm
+(It is session-only unless configured permanently. A persistent user-level setting can be) Tj
+/F1 9 Tf
+1 0 0 1 48 108.0 Tm
+(created with:) Tj
+/F3 8 Tf
+1 0 0 1 56 96.0 Tm
+([Environment]::SetEnvironmentVariable\() Tj
+/F3 8 Tf
+1 0 0 1 56 85.0 Tm
+(    "PYTHONPATH",) Tj
+/F3 8 Tf
+1 0 0 1 56 74.0 Tm
+(    "C:\\Smart file organizer",) Tj
+/F3 8 Tf
+1 0 0 1 56 63.0 Tm
+(    "User") Tj
+ET
+endstream
+endobj
+11 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R /F2 4 0 R /F3 5 0 R >> >> /Contents 10 0 R >>
+endobj
+12 0 obj
+<< /Length 4483 >>
+stream
+BT
+/F3 8 Tf
+1 0 0 1 56 792.0 Tm
+(\)) Tj
+/F1 9 Tf
+1 0 0 1 48 781.0 Tm
+() Tj
+/F1 9 Tf
+1 0 0 1 48 769.0 Tm
+(A new terminal is normally required after changing persistent environment variables. Remove) Tj
+/F1 9 Tf
+1 0 0 1 48 757.0 Tm
+(the setting with the same method and a null value.) Tj
+/F1 9 Tf
+1 0 0 1 48 745.0 Tm
+(PYTHONPATH affects imports, not relative file paths. Path\('downloads'\) is resolved relative) Tj
+/F1 9 Tf
+1 0 0 1 48 733.0 Tm
+(to the process working directory, not automatically relative to the project root.) Tj
+/F1 9 Tf
+1 0 0 1 48 721.0 Tm
+(A global PYTHONPATH is convenient but can cause collisions between projects that contain) Tj
+/F1 9 Tf
+1 0 0 1 48 709.0 Tm
+(similarly named files. Project packaging is generally safer.) Tj
+/F2 17 Tf
+1 0 0 1 48 697.0 Tm
+(11. __pycache__ and .pyc files) Tj
+/F1 9 Tf
+1 0 0 1 48 664.0 Tm
+(Python may compile imported source files into bytecode. These files are stored in) Tj
+/F1 9 Tf
+1 0 0 1 48 652.0 Tm
+(__pycache__ directories close to their source files.) Tj
+/F3 8 Tf
+1 0 0 1 56 640.0 Tm
+(C:\\Smart file organizer\\__pycache__\\File_item.cpython-311.pyc) Tj
+/F3 8 Tf
+1 0 0 1 56 629.0 Tm
+(C:\\Smart file organizer\\test\\__pycache__\\test_rule_engine.cpython-311-pytest-9.0.2.pyc) Tj
+/F1 9 Tf
+1 0 0 1 48 618.0 Tm
+() Tj
+/F1 9 Tf
+1 0 0 1 48 606.0 Tm
+(The filename identifies the module, Python implementation, and version. __pycache__ is) Tj
+/F1 9 Tf
+1 0 0 1 48 594.0 Tm
+(generated, can be safely deleted, and will be recreated. It should normally not be) Tj
+/F1 9 Tf
+1 0 0 1 48 582.0 Tm
+(committed.) Tj
+/F3 8 Tf
+1 0 0 1 56 570.0 Tm
+(__pycache__/) Tj
+/F3 8 Tf
+1 0 0 1 56 559.0 Tm
+(*.py[cod]) Tj
+/F3 8 Tf
+1 0 0 1 56 548.0 Tm
+(.pytest_cache/) Tj
+/F1 9 Tf
+1 0 0 1 48 537.0 Tm
+() Tj
+/F2 17 Tf
+1 0 0 1 48 525.0 Tm
+(12. What is pyproject.toml?) Tj
+/F1 9 Tf
+1 0 0 1 48 492.0 Tm
+(pyproject.toml is the standard configuration file for a modern Python project. It can) Tj
+/F1 9 Tf
+1 0 0 1 48 480.0 Tm
+(declare project metadata, supported Python versions, dependencies, build settings, package) Tj
+/F1 9 Tf
+1 0 0 1 48 468.0 Tm
+(discovery, command-line entry points, and tool configuration.) Tj
+/F1 9 Tf
+1 0 0 1 48 456.0 Tm
+(The current project does not have one because uv init has not been run and the project has) Tj
+/F1 9 Tf
+1 0 0 1 48 444.0 Tm
+(not yet been configured as an installable package.) Tj
+/F3 8 Tf
+1 0 0 1 56 432.0 Tm
+([project]) Tj
+/F3 8 Tf
+1 0 0 1 56 421.0 Tm
+(name = "smart-file-organizer") Tj
+/F3 8 Tf
+1 0 0 1 56 410.0 Tm
+(version = "0.1.0") Tj
+/F3 8 Tf
+1 0 0 1 56 399.0 Tm
+(description = "A command-line tool for organizing files by type") Tj
+/F3 8 Tf
+1 0 0 1 56 388.0 Tm
+(requires-python = ">=3.10") Tj
+/F3 8 Tf
+1 0 0 1 56 377.0 Tm
+(dependencies = []) Tj
+/F3 8 Tf
+1 0 0 1 56 366.0 Tm
+() Tj
+/F3 8 Tf
+1 0 0 1 56 355.0 Tm
+([build-system]) Tj
+/F3 8 Tf
+1 0 0 1 56 344.0 Tm
+(requires = ["hatchling"]) Tj
+/F3 8 Tf
+1 0 0 1 56 333.0 Tm
+(build-backend = "hatchling.build") Tj
+/F3 8 Tf
+1 0 0 1 56 322.0 Tm
+() Tj
+/F3 8 Tf
+1 0 0 1 56 311.0 Tm
+([tool.hatch.build.targets.wheel]) Tj
+/F3 8 Tf
+1 0 0 1 56 300.0 Tm
+(packages = ["src/smart_file_organizer"]) Tj
+/F1 9 Tf
+1 0 0 1 48 289.0 Tm
+() Tj
+/F1 9 Tf
+1 0 0 1 48 277.0 Tm
+(The distribution/project name may use hyphens, while the import package normally uses) Tj
+/F1 9 Tf
+1 0 0 1 48 265.0 Tm
+(underscores: smart-file-organizer versus smart_file_organizer.) Tj
+/F1 9 Tf
+1 0 0 1 48 253.0 Tm
+(uv init creates project metadata, usually including pyproject.toml. It does not) Tj
+/F1 9 Tf
+1 0 0 1 48 241.0 Tm
+(automatically move files, create all package imports, or convert loose modules into a) Tj
+/F1 9 Tf
+1 0 0 1 48 229.0 Tm
+(package.) Tj
+/F2 17 Tf
+1 0 0 1 48 217.0 Tm
+(13. What does uv run do?) Tj
+/F1 9 Tf
+1 0 0 1 48 184.0 Tm
+(uv run executes a command using the project's managed Python environment. Examples are uv) Tj
+/F1 9 Tf
+1 0 0 1 48 172.0 Tm
+(run python main.py and uv run pytest. It does not automatically turn every root-level .py) Tj
+/F1 9 Tf
+1 0 0 1 48 160.0 Tm
+(file into an installed package.) Tj
+/F1 9 Tf
+1 0 0 1 48 148.0 Tm
+(Project layout, pyproject.toml, package discovery, and installation still determine what) Tj
+/F1 9 Tf
+1 0 0 1 48 136.0 Tm
+(importable package is available.) Tj
+/F2 17 Tf
+1 0 0 1 48 124.0 Tm
+(14. What does uv pip install -e . mean?) Tj
+/F3 8 Tf
+1 0 0 1 56 91.0 Tm
+(uv pip install -e .) Tj
+/F1 9 Tf
+1 0 0 1 48 80.0 Tm
+() Tj
+/F1 9 Tf
+1 0 0 1 48 68.0 Tm
+(uv is the environment/package manager, pip is the pip-compatible installer interface,) Tj
+ET
+endstream
+endobj
+13 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R /F2 4 0 R /F3 5 0 R >> >> /Contents 12 0 R >>
+endobj
+14 0 obj
+<< /Length 4611 >>
+stream
+BT
+/F1 9 Tf
+1 0 0 1 48 792.0 Tm
+(install requests installation, -e means editable, and . means the project in the current) Tj
+/F1 9 Tf
+1 0 0 1 48 780.0 Tm
+(directory.) Tj
+/F1 9 Tf
+1 0 0 1 48 768.0 Tm
+(This command is run by the developer or user. Python does not automatically install every) Tj
+/F1 9 Tf
+1 0 0 1 48 756.0 Tm
+(directory containing Python files. The project normally needs pyproject.toml so the) Tj
+/F1 9 Tf
+1 0 0 1 48 744.0 Tm
+(installer knows the project name, package source location, dependencies, and build backend.) Tj
+/F1 9 Tf
+1 0 0 1 48 732.0 Tm
+(An editable install records a link or configuration in the active environment that points) Tj
+/F1 9 Tf
+1 0 0 1 48 720.0 Tm
+(the package name to the source directory. Source edits are immediately used without) Tj
+/F1 9 Tf
+1 0 0 1 48 708.0 Tm
+(reinstalling after each change.) Tj
+/F1 9 Tf
+1 0 0 1 48 696.0 Tm
+(Reinstallation may still be needed after changing dependencies, package configuration,) Tj
+/F1 9 Tf
+1 0 0 1 48 684.0 Tm
+(package location, or metadata.) Tj
+/F2 17 Tf
+1 0 0 1 48 672.0 Tm
+(15. Packaged project layout) Tj
+/F3 8 Tf
+1 0 0 1 56 639.0 Tm
+(C:\\Smart file organizer\\) Tj
+/F3 8 Tf
+1 0 0 1 56 628.0 Tm
+(|-- pyproject.toml) Tj
+/F3 8 Tf
+1 0 0 1 56 617.0 Tm
+(|-- src\\) Tj
+/F3 8 Tf
+1 0 0 1 56 606.0 Tm
+(|   `-- smart_file_organizer\\) Tj
+/F3 8 Tf
+1 0 0 1 56 595.0 Tm
+(|       |-- __init__.py) Tj
+/F3 8 Tf
+1 0 0 1 56 584.0 Tm
+(|       |-- file_item.py) Tj
+/F3 8 Tf
+1 0 0 1 56 573.0 Tm
+(|       |-- rule_engine.py) Tj
+/F3 8 Tf
+1 0 0 1 56 562.0 Tm
+(|       |-- file_scanner.py) Tj
+/F3 8 Tf
+1 0 0 1 56 551.0 Tm
+(|       |-- file_mover.py) Tj
+/F3 8 Tf
+1 0 0 1 56 540.0 Tm
+(|       |-- move_planner.py) Tj
+/F3 8 Tf
+1 0 0 1 56 529.0 Tm
+(|       |-- organizer.py) Tj
+/F3 8 Tf
+1 0 0 1 56 518.0 Tm
+(|       `-- main.py) Tj
+/F3 8 Tf
+1 0 0 1 56 507.0 Tm
+(`-- tests\\) Tj
+/F3 8 Tf
+1 0 0 1 56 496.0 Tm
+(    `-- test_rule_engine.py) Tj
+/F1 9 Tf
+1 0 0 1 48 485.0 Tm
+() Tj
+/F1 9 Tf
+1 0 0 1 48 473.0 Tm
+(The src layout is common because it prevents accidental imports directly from the repository) Tj
+/F1 9 Tf
+1 0 0 1 48 461.0 Tm
+( root. Related files remain separate modules, but they are grouped under one import) Tj
+/F1 9 Tf
+1 0 0 1 48 449.0 Tm
+(namespace.) Tj
+/F1 9 Tf
+1 0 0 1 48 437.0 Tm
+(Inside the package, imports can use relative form such as from .file_item import FileItem.) Tj
+/F1 9 Tf
+1 0 0 1 48 425.0 Tm
+(Tests should use the full package path: from smart_file_organizer.file_item import FileItem.) Tj
+/F2 17 Tf
+1 0 0 1 48 413.0 Tm
+(16. Installing and using the package) Tj
+/F3 8 Tf
+1 0 0 1 56 380.0 Tm
+(cd "C:\\Smart file organizer") Tj
+/F3 8 Tf
+1 0 0 1 56 369.0 Tm
+(uv init) Tj
+/F3 8 Tf
+1 0 0 1 56 358.0 Tm
+(uv pip install -e .) Tj
+/F3 8 Tf
+1 0 0 1 56 347.0 Tm
+(uv run pytest tests\\test_rule_engine.py) Tj
+/F1 9 Tf
+1 0 0 1 48 336.0 Tm
+() Tj
+/F1 9 Tf
+1 0 0 1 48 324.0 Tm
+(After installation, Python's environment knows that smart_file_organizer points to the) Tj
+/F1 9 Tf
+1 0 0 1 48 312.0 Tm
+(source package. From another directory, using the same environment, this can work:) Tj
+/F3 8 Tf
+1 0 0 1 56 300.0 Tm
+(cd C:\\Users\\rana) Tj
+/F3 8 Tf
+1 0 0 1 56 289.0 Tm
+(python -c "from smart_file_organizer.file_item import FileItem; print\(FileItem\)") Tj
+/F1 9 Tf
+1 0 0 1 48 278.0 Tm
+() Tj
+/F1 9 Tf
+1 0 0 1 48 266.0 Tm
+(When using uv from outside the project, explicitly selecting the project can be useful:) Tj
+/F3 8 Tf
+1 0 0 1 56 254.0 Tm
+(uv run --project "C:\\Smart file organizer" python -c "from smart_file_organizer.file_item import FileItem; print\(FileItem\)") Tj
+/F1 9 Tf
+1 0 0 1 48 243.0 Tm
+() Tj
+/F1 9 Tf
+1 0 0 1 48 231.0 Tm
+(The package import no longer depends on finding file_item.py in the current directory. The) Tj
+/F1 9 Tf
+1 0 0 1 48 219.0 Tm
+(environment knows the package location.) Tj
+/F2 17 Tf
+1 0 0 1 48 207.0 Tm
+(17. Imports versus working-directory file paths) Tj
+/F1 9 Tf
+1 0 0 1 48 174.0 Tm
+(Package installation fixes Python imports, but it does not change the process working) Tj
+/F1 9 Tf
+1 0 0 1 48 162.0 Tm
+(directory.) Tj
+/F3 8 Tf
+1 0 0 1 56 150.0 Tm
+(Organizer\("downloads"\)) Tj
+/F3 8 Tf
+1 0 0 1 56 139.0 Tm
+(Path\("downloads"\)) Tj
+/F1 9 Tf
+1 0 0 1 48 128.0 Tm
+() Tj
+/F1 9 Tf
+1 0 0 1 48 116.0 Tm
+(If launched from C:\\Smart file organizer, downloads usually means C:\\Smart file) Tj
+/F1 9 Tf
+1 0 0 1 48 104.0 Tm
+(organizer\\downloads. If launched from C:\\Users\\rana, it may mean C:\\Users\\rana\\downloads. A) Tj
+/F1 9 Tf
+1 0 0 1 48 92.0 Tm
+(robust application should accept an explicit directory or resolve paths intentionally.) Tj
+/F2 17 Tf
+1 0 0 1 48 80.0 Tm
+(18. Why packages scale better) Tj
+ET
+endstream
+endobj
+15 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R /F2 4 0 R /F3 5 0 R >> >> /Contents 14 0 R >>
+endobj
+16 0 obj
+<< /Length 4611 >>
+stream
+BT
+/F1 9 Tf
+1 0 0 1 48 792.0 Tm
+(Packages provide a stable namespace, reduce dependence on the current directory, avoid) Tj
+/F1 9 Tf
+1 0 0 1 48 780.0 Tm
+(collisions with unrelated modules, organize related code, make testing more reliable,) Tj
+/F1 9 Tf
+1 0 0 1 48 768.0 Tm
+(separate application code from tests, and make distribution and CLI entry points possible.) Tj
+/F3 8 Tf
+1 0 0 1 56 756.0 Tm
+([project.scripts]) Tj
+/F3 8 Tf
+1 0 0 1 56 745.0 Tm
+(smart-organizer = "smart_file_organizer.main:main") Tj
+/F1 9 Tf
+1 0 0 1 48 734.0 Tm
+() Tj
+/F1 9 Tf
+1 0 0 1 48 722.0 Tm
+(After packaging, users can eventually run smart-organizer instead of python main.py.) Tj
+/F2 17 Tf
+1 0 0 1 48 710.0 Tm
+(19. Complete comparison) Tj
+/F3 8 Tf
+1 0 0 1 56 677.0 Tm
+(Current loose-module project:) Tj
+/F3 8 Tf
+1 0 0 1 56 666.0 Tm
+(    from File_item import FileItem) Tj
+/F3 8 Tf
+1 0 0 1 56 655.0 Tm
+(    Depends on sys.path, pytest.ini, PYTHONPATH, or launch location.) Tj
+/F3 8 Tf
+1 0 0 1 56 644.0 Tm
+() Tj
+/F3 8 Tf
+1 0 0 1 56 633.0 Tm
+(Installed package project:) Tj
+/F3 8 Tf
+1 0 0 1 56 622.0 Tm
+(    from smart_file_organizer.file_item import FileItem) Tj
+/F3 8 Tf
+1 0 0 1 56 611.0 Tm
+(    Depends on the package being installed in the active environment.) Tj
+/F1 9 Tf
+1 0 0 1 48 600.0 Tm
+() Tj
+/F1 9 Tf
+1 0 0 1 48 588.0 Tm
+(In the current project, direct execution of a root script usually works, direct execution of) Tj
+/F1 9 Tf
+1 0 0 1 48 576.0 Tm
+( a subdirectory script may fail, pytest.ini helps pytest, -m from the root helps module) Tj
+/F1 9 Tf
+1 0 0 1 48 564.0 Tm
+(execution, and PYTHONPATH can provide a temporary workaround.) Tj
+/F1 9 Tf
+1 0 0 1 48 552.0 Tm
+(In the packaged project, imports work from different directories when the correct) Tj
+/F1 9 Tf
+1 0 0 1 48 540.0 Tm
+(environment is active. The package is discovered through the environment rather than by) Tj
+/F1 9 Tf
+1 0 0 1 48 528.0 Tm
+(searching the current directory for loose files.) Tj
+/F2 17 Tf
+1 0 0 1 48 516.0 Tm
+(20. Command reference) Tj
+/F3 8 Tf
+1 0 0 1 56 483.0 Tm
+(# Run the application from the repository root) Tj
+/F3 8 Tf
+1 0 0 1 56 472.0 Tm
+(uv run python main.py) Tj
+/F3 8 Tf
+1 0 0 1 56 461.0 Tm
+() Tj
+/F3 8 Tf
+1 0 0 1 56 450.0 Tm
+(# Run one test file through pytest) Tj
+/F3 8 Tf
+1 0 0 1 56 439.0 Tm
+(uv run pytest test\\test_rule_engine.py) Tj
+/F3 8 Tf
+1 0 0 1 56 428.0 Tm
+() Tj
+/F3 8 Tf
+1 0 0 1 56 417.0 Tm
+(# Equivalent explicit module launch) Tj
+/F3 8 Tf
+1 0 0 1 56 406.0 Tm
+(uv run python -m pytest test\\test_rule_engine.py) Tj
+/F3 8 Tf
+1 0 0 1 56 395.0 Tm
+() Tj
+/F3 8 Tf
+1 0 0 1 56 384.0 Tm
+(# Run a test module by dotted module name from the root) Tj
+/F3 8 Tf
+1 0 0 1 56 373.0 Tm
+(uv run python -m test.test_rule_engine) Tj
+/F3 8 Tf
+1 0 0 1 56 362.0 Tm
+() Tj
+/F3 8 Tf
+1 0 0 1 56 351.0 Tm
+(# Run a direct subdirectory script with a temporary import path) Tj
+/F3 8 Tf
+1 0 0 1 56 340.0 Tm
+($env:PYTHONPATH="C:\\Smart file organizer") Tj
+/F3 8 Tf
+1 0 0 1 56 329.0 Tm
+(uv run python test\\test_rule_engine.py) Tj
+/F3 8 Tf
+1 0 0 1 56 318.0 Tm
+() Tj
+/F3 8 Tf
+1 0 0 1 56 307.0 Tm
+(# Inspect import search locations) Tj
+/F3 8 Tf
+1 0 0 1 56 296.0 Tm
+(uv run python -c "import sys; print\(*sys.path, sep='\\n'\)") Tj
+/F3 8 Tf
+1 0 0 1 56 285.0 Tm
+() Tj
+/F3 8 Tf
+1 0 0 1 56 274.0 Tm
+(# Initialize project metadata) Tj
+/F3 8 Tf
+1 0 0 1 56 263.0 Tm
+(uv init) Tj
+/F3 8 Tf
+1 0 0 1 56 252.0 Tm
+() Tj
+/F3 8 Tf
+1 0 0 1 56 241.0 Tm
+(# Install current project in editable mode) Tj
+/F3 8 Tf
+1 0 0 1 56 230.0 Tm
+(uv pip install -e .) Tj
+/F1 9 Tf
+1 0 0 1 48 219.0 Tm
+() Tj
+/F2 17 Tf
+1 0 0 1 48 207.0 Tm
+(21. Recommended path for Smart File Organizer) Tj
+/F1 9 Tf
+1 0 0 1 48 174.0 Tm
+(For the current initial phase, keep the existing modules, retain pytest.ini, and run tests) Tj
+/F1 9 Tf
+1 0 0 1 48 162.0 Tm
+(through pytest:) Tj
+/F3 8 Tf
+1 0 0 1 56 150.0 Tm
+(uv run python -m pytest test\\test_rule_engine.py) Tj
+/F1 9 Tf
+1 0 0 1 48 139.0 Tm
+() Tj
+/F1 9 Tf
+1 0 0 1 48 127.0 Tm
+(When the project grows, convert it to an installable package: run uv init, create) Tj
+/F1 9 Tf
+1 0 0 1 48 115.0 Tm
+(src\\smart_file_organizer\\, add __init__.py, move application modules, use lowercase) Tj
+/F1 9 Tf
+1 0 0 1 48 103.0 Tm
+(conventional filenames, update imports, configure package discovery in pyproject.toml,) Tj
+/F1 9 Tf
+1 0 0 1 48 91.0 Tm
+(install with uv pip install -e ., and run tests against the package imports.) Tj
+/F1 9 Tf
+1 0 0 1 48 79.0 Tm
+(The key distinction is: the current project asks Python to find individual files through) Tj
+/F1 9 Tf
+1 0 0 1 48 67.0 Tm
+(sys.path; a packaged project asks Python to find one installed package through the) Tj
+ET
+endstream
+endobj
+17 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R /F2 4 0 R /F3 5 0 R >> >> /Contents 16 0 R >>
+endobj
+18 0 obj
+<< /Length 1012 >>
+stream
+BT
+/F1 9 Tf
+1 0 0 1 48 792.0 Tm
+(environment.) Tj
+/F2 17 Tf
+1 0 0 1 48 780.0 Tm
+(22. Troubleshooting checklist) Tj
+/F1 9 Tf
+1 0 0 1 48 747.0 Tm
+(If ModuleNotFoundError occurs, confirm the filename and capitalization, print sys.path,) Tj
+/F1 9 Tf
+1 0 0 1 48 735.0 Tm
+(check the command's working directory, check whether the import is package-qualified,) Tj
+/F1 9 Tf
+1 0 0 1 48 723.0 Tm
+(confirm pytest.ini is in the repository root, and verify that the package was installed into) Tj
+/F1 9 Tf
+1 0 0 1 48 711.0 Tm
+( the environment being used.) Tj
+/F1 9 Tf
+1 0 0 1 48 699.0 Tm
+(If pytest reports collected 0 items, verify that the file has functions or methods beginning) Tj
+/F1 9 Tf
+1 0 0 1 48 687.0 Tm
+( with test_. If an AttributeError occurs, compare the method called in the test with the) Tj
+/F1 9 Tf
+1 0 0 1 48 675.0 Tm
+(actual class API. If a relative data path fails from another directory, remember that) Tj
+/F1 9 Tf
+1 0 0 1 48 663.0 Tm
+(imports and working-directory paths are separate concerns.) Tj
+ET
+endstream
+endobj
+19 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R /F2 4 0 R /F3 5 0 R >> >> /Contents 18 0 R >>
+endobj
+xref
+0 20
+0000000000 65535 f 
+0000000015 00000 n 
+0000000064 00000 n 
+0000000162 00000 n 
+0000000232 00000 n 
+0000000307 00000 n 
+0000000375 00000 n 
+0000001272 00000 n 
+0000001418 00000 n 
+0000002257 00000 n 
+0000002403 00000 n 
+0000006898 00000 n 
+0000007046 00000 n 
+0000011582 00000 n 
+0000011730 00000 n 
+0000016394 00000 n 
+0000016542 00000 n 
+0000021206 00000 n 
+0000021354 00000 n 
+0000022419 00000 n 
+trailer
+<< /Size 20 /Root 1 0 R >>
+startxref
+22567
+%%EOF

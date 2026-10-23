@@ -106,6 +106,21 @@ Run the organizer:
 uv run python main.py
 ```
 
+By default, the application scans `Downloads` and writes categorized files to
+`Downloads\organized`.
+
+To choose a different source and destination, pass them as positional
+arguments:
+
+```powershell
+uv run python main.py "C:\FilesToOrganize" "C:\OrganizedFiles"
+```
+
+The first path is scanned recursively. The second path receives category
+folders such as `Documents`, `Images`, and `Code`. Both paths may be relative
+or absolute; absolute paths are recommended when the source and destination
+are outside the project directory.
+
 The program displays a proposed move for every discovered file:
 
 ```text
@@ -115,6 +130,26 @@ Do you want to execute the plan? (y/n):
 ```
 
 Enter `y` to perform the moves, or any other response to cancel.
+
+The source and destination can also be provided through Python:
+
+```python
+from organizer import Organizer
+
+organizer = Organizer(
+    root_directory=r"C:\FilesToOrganize",
+    output_directory=r"C:\OrganizedFiles",
+)
+operations = organizer.build_plan()
+organizer.preview_plan(operations)
+```
+
+If no destination is supplied, the existing default is preserved:
+
+```python
+Organizer("Downloads")
+# destination: Downloads\organized
+```
 
 ### Running without uv
 

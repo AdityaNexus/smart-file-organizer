@@ -1,0 +1,3 @@
+2026-10-23 11:58:18,784 | INFO | file_mover | Moved C:\Smart file organizer\move_case\last.txt to C:\Smart file organizer\Downloads\organized\Documents\last.txt
+2026-10-23 11:58:18,787 | INFO | file_mover | Moved C:\Smart file organizer\move_case\self.pdf to C:\Smart file organizer\Downloads\organized\Documents\self.pdf
+2026-10-23 11:58:18,790 | INFO | file_mover | Moved C:\Smart file organizer\move_case\learn.py to C:\Smart file organizer\Downloads\organized\Code\learn.py

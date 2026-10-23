@@ -1,0 +1,11 @@
+{
+    "categories": {
+        "Documents": [".pdf", ".docx", ".txt", ".md"],
+        "Images": [".png", ".jpg", ".jpeg", ".gif"],
+        "Code": [".py", ".java", ".cpp", ".js"],
+        "Archives": [".zip", ".rar", ".7z"],
+        "Spreadsheets": [".csv", ".xlsx", ".xls"],
+        "Videos": [".mp4", ".mkv", ".avi"]
+    },
+    "default_category": "Others"
+}
