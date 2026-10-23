@@ -121,6 +121,25 @@ folders such as `Documents`, `Images`, and `Code`. Both paths may be relative
 or absolute; absolute paths are recommended when the source and destination
 are outside the project directory.
 
+The same options can be written as named command-line arguments:
+
+```powershell
+# Preview without moving anything
+uv run python main.py --source Downloads --dry-run
+
+# Organize after the interactive confirmation
+uv run python main.py --source Downloads
+
+# Choose a different destination
+uv run python main.py `
+    --source "C:\FilesToOrganize" `
+    --output "C:\OrganizedFiles"
+```
+
+The named options and the older positional form are equivalent. Do not mix
+the two forms in one command. `--dry-run` always stops after the plan preview,
+before confirmation and execution.
+
 The program displays a proposed move for every discovered file:
 
 ```text
