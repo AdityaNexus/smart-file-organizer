@@ -1,156 +1,157 @@
 # Smart File Organizer
 
-A small Python command-line tool that organizes files in a directory by file
-type. It scans a folder, creates a move plan, shows the proposed changes, and
-only moves files after the user confirms.
+A safe, preview-first command-line application that organizes files by
+extension. It scans a source directory, builds a move plan, previews the
+changes, and only moves files after confirmation.
 
-> **Project status:** Initial phase / proof of concept  
-> The current version is intentionally simple and focuses on a safe,
-> understandable organization workflow.
+> **Project status:** Early release
 
 ## Features
 
-- Recursively scans a directory for files.
-- Classifies files using their extensions.
-- Groups files into category folders.
-- Shows a preview before making changes.
-- Creates destination folders automatically.
-- Avoids overwriting an existing destination file.
-- Renames duplicate destinations using names such as `report_1.pdf`.
-- Tracks successful moves in memory.
-- Supports undoing the most recent successful move through the Python API.
+- Recursively scans a source directory.
+- Excludes the selected output directory from future scans.
+- Classifies files using case-insensitive extension rules.
+- Creates category folders automatically.
+- Previews every proposed move before execution.
+- Never overwrites an existing destination.
+- Handles duplicate names with suffixes such as `report_1.pdf`.
+- Supports `--dry-run`, `--yes`, and optional JSON output.
+- Persists successful move batches in an atomic JSON history file.
+- Supports CLI history lookup and persistent undo.
+- Provides an installable `smart-organizer` command.
 
-## How it works
+## Categories
 
-```mermaid
-flowchart TD
-    A[Start main.py] --> B[Scan downloads recursively]
-    B --> C[Exclude organized output folder]
-    C --> D[Create FileItem objects]
-    D --> E[Classify by extension]
-    E --> F[Build move plan]
-    F --> G[Preview proposed moves]
-    G --> H{User confirms?}
-    H -- No --> I[Cancel safely]
-    H -- Yes --> J[Create category folders]
-    J --> K[Move files]
-    K --> L[Show moved, skipped, and failed summary]
-```
-
-## Default categories
+Rules are defined in [`config.json`](./config.json).
 
 | Extensions | Category |
 | --- | --- |
-| `.pdf`, `.docx`, `.txt` | `Documents` |
-| `.png`, `.jpg`, `.jpeg` | `Images` |
-| `.py`, `.java` | `Code` |
+| `.pdf`, `.docx`, `.txt`, `.md` | `Documents` |
+| `.png`, `.jpg`, `.jpeg`, `.gif` | `Images` |
+| `.py`, `.java`, `.cpp`, `.js` | `Code` |
+| `.zip`, `.rar`, `.7z` | `Archives` |
+| `.csv`, `.xlsx`, `.xls` | `Spreadsheets` |
+| `.mp4`, `.mkv`, `.avi` | `Videos` |
 | Any other extension | `Others` |
-
-The rules are defined in [`Rule_engine.py`](./Rule_engine.py), so additional
-extensions can be added without changing the scanner or mover.
-
-## Example
-
-Given this input:
-
-```text
-downloads/
-├── report.pdf
-├── photo.jpg
-├── script.py
-└── notes.xyz
-```
-
-The organizer proposes:
-
-```text
-downloads/
-└── organized/
-    ├── Documents/
-    │   └── report.pdf
-    ├── Images/
-    │   └── photo.jpg
-    ├── Code/
-    │   └── script.py
-    └── Others/
-        └── notes.xyz
-```
-
-The `organized` directory is excluded from future scans to prevent the tool
-from repeatedly processing files it has already organized.
 
 ## Requirements
 
 - Python 3.10 or newer
-- [`uv`](https://docs.astral.sh/uv/) (recommended) or a standard Python
-  installation
+- [`uv`](https://docs.astral.sh/uv/) recommended
 
-The code uses modern type-hint syntax such as `str | Path` and
-`list[FileItem]`, so Python 3.10+ is required.
+## Installation and development
 
-## Getting started
-
-Clone the repository and open its directory:
+Clone the repository and enter the project directory:
 
 ```powershell
 git clone <your-repository-url>
 cd "Smart file organizer"
 ```
 
-Create a test directory named `downloads` in the project root, or update the
-directory passed to `Organizer` in [`main.py`](./main.py).
-
-Run the organizer:
+Synchronize the development environment:
 
 ```powershell
-uv run python main.py
+uv sync --group dev
 ```
 
-By default, the application scans `Downloads` and writes categorized files to
+This installs the project and development tools such as pytest into the
+project environment.
+
+## Usage
+
+The canonical command is:
+
+```powershell
+uv run smart-organizer
+```
+
+By default, it scans `Downloads` and writes categorized files to
 `Downloads\organized`.
 
-To choose a different source and destination, pass them as positional
-arguments:
+### Preview without moving files
 
 ```powershell
-uv run python main.py "C:\FilesToOrganize" "C:\OrganizedFiles"
+uv run smart-organizer --source Downloads --dry-run
 ```
 
-The first path is scanned recursively. The second path receives category
-folders such as `Documents`, `Images`, and `Code`. Both paths may be relative
-or absolute; absolute paths are recommended when the source and destination
-are outside the project directory.
-
-The same options can be written as named command-line arguments:
+### Preview as JSON
 
 ```powershell
-# Preview without moving anything
-uv run python main.py --source Downloads --dry-run
+uv run smart-organizer --source Downloads --dry-run --json
+```
 
-# Organize after the interactive confirmation
-uv run python main.py --source Downloads
+### Organize with confirmation
 
-# Choose a different destination
-uv run python main.py `
+```powershell
+uv run smart-organizer --source Downloads
+```
+
+Enter `y` after reviewing the proposed moves.
+
+### Organize without a prompt
+
+```powershell
+uv run smart-organizer --source Downloads --yes
+```
+
+Use `--yes` carefully because it executes the plan automatically.
+
+### Use custom source and output paths
+
+Quote Windows paths that contain spaces:
+
+```powershell
+uv run smart-organizer `
     --source "C:\FilesToOrganize" `
-    --output "C:\OrganizedFiles"
+    --output "C:\OrganizedFiles" `
+    --dry-run
 ```
 
-The named options and the older positional form are equivalent. Do not mix
-the two forms in one command. `--dry-run` always stops after the plan preview,
-before confirmation and execution.
+The output directory can be anywhere, including outside the source directory.
+If it is inside the source directory, it is excluded from scanning.
 
-The program displays a proposed move for every discovered file:
+### View persistent history
+
+```powershell
+uv run smart-organizer `
+    --source "C:\FilesToOrganize" `
+    --output "C:\OrganizedFiles" `
+    --history `
+    --json
+```
+
+History is stored at:
 
 ```text
-Proposed file moves:
-Move downloads\report.pdf to downloads\organized\Documents\report.pdf
-Do you want to execute the plan? (y/n):
+<output>\.organizer-history.json
 ```
 
-Enter `y` to perform the moves, or any other response to cancel.
+Always use the same `--output` path that was used for the original move.
 
-The source and destination can also be provided through Python:
+### Undo the latest successful batch
+
+```powershell
+uv run smart-organizer `
+    --source "C:\FilesToOrganize" `
+    --output "C:\OrganizedFiles" `
+    --undo
+```
+
+Undo validates that destination files still exist and that the original source
+paths are free before moving files back.
+
+### Legacy entry points
+
+The canonical command is preferred, but these forms remain supported:
+
+```powershell
+uv run python main.py --source Downloads --dry-run
+uv run python main2.py --source Downloads --dry-run
+```
+
+`main2.py` delegates to the same implementation as `main.py`.
+
+## Python API
 
 ```python
 from organizer import Organizer
@@ -163,96 +164,83 @@ operations = organizer.build_plan()
 organizer.preview_plan(operations)
 ```
 
-If no destination is supplied, the existing default is preserved:
+## Testing
 
-```python
-Organizer("Downloads")
-# destination: Downloads\organized
-```
-
-### Running without uv
-
-If Python is installed directly, run:
-
-```powershell
-python main.py
-```
-
-## Running tests
-
-Run the test suite through Python so the project root is included in the
-import path:
+Run the complete test suite:
 
 ```powershell
 uv run python -m pytest
 ```
 
-To run one test file:
+Run one test file:
 
 ```powershell
-uv run python -m pytest test/test_rule_engine.py
+uv run python -m pytest test/test_organizer.py
 ```
+
+GitHub Actions also runs the tests on Python 3.10, 3.11, 3.12, and 3.13.
+The workflow is [`ci.yml`](./.github/workflows/ci.yml).
+
+## Building and installing
+
+Build distributable artifacts:
+
+```powershell
+uv build
+```
+
+The wheel and source archive are written to `dist/`. To test-install the
+wheel locally:
+
+```powershell
+uv pip install .\dist\smart_file_organizer-0.1.0-py3-none-any.whl
+```
+
+The project is configured in [`pyproject.toml`](./pyproject.toml), which
+defines the package metadata, build backend, included modules, dependencies,
+and `smart-organizer` console command.
 
 ## Project structure
 
 ```text
 .
-├── main.py                 # CLI entry point
-├── organizer.py            # Coordinates the complete workflow
+├── main.py                 # Canonical CLI entry point
+├── main2.py                # Compatibility entry point
+├── organizer.py            # Coordinates the workflow
 ├── FIle_scanner.py         # Recursively discovers files
 ├── File_item.py            # File metadata wrapper
 ├── Rule_engine.py          # Maps extensions to categories
-├── move_planner.py         # Builds proposed source/destination moves
+├── config.json             # Extension-to-category rules
+├── move_planner.py         # Builds proposed moves
 ├── file_mover.py           # Executes moves and reports results
-├── undo_manager.py         # Undoes the most recent successful move
+├── history.py              # Persists successful move batches
+├── undo_manager.py         # In-process undo support
+├── pyproject.toml          # Packaging and tool configuration
+├── uv.lock                 # Locked development dependencies
+├── .github/
+│   └── workflows/
+│       └── ci.yml          # GitHub Actions CI workflow
 ├── schemas/
-│   └── MoveResult.py       # Result model for move operations
-├── test/                   # Automated tests
-└── Downloads/              # Local sample data; not required by the code
+│   └── MoveResult.py       # Move result model
+└── test/                   # Automated tests
 ```
 
-## Safety behavior
+## Safety behavior and limitations
 
-The tool does not move files immediately after scanning. It first builds and
-prints a plan, then asks for confirmation. It also:
+The default behavior is conservative:
 
-- skips a destination when a file already exists there;
-- reports failed moves instead of hiding errors;
-- leaves the input files untouched when the user declines;
-- excludes the output directory from subsequent scans.
+- A plan is shown before files are moved.
+- Confirmation is required unless `--yes` is supplied.
+- Existing destinations are skipped rather than overwritten.
+- Failed operations are reported and logged.
+- The output tree is excluded from future scans.
+- Persistent undo refuses to overwrite an existing source file.
 
-The current undo history is held in memory and is lost when the program exits.
-For that reason, the undo functionality is currently intended for use from
-the Python API, not as a persistent command in the CLI.
-
-## Current limitations
-
-- The input directory is currently hard-coded as `downloads` in `main.py`.
-- Category rules are extension-based and case-insensitive, but not content-aware.
-- There is no persistent operation history.
-- There is no dry-run command-line flag; preview is always shown before
-  confirmation.
-- Configuration, logging, and command-line arguments are not yet exposed.
-
-## Roadmap
-
-- Add command-line arguments for source and output directories.
-- Add a configuration file for custom category rules.
-- Add persistent move history and a CLI undo command.
-- Add a `--dry-run` option and machine-readable output.
-- Improve duplicate handling and expose conflict policies.
-- Add broader test coverage for scanning, planning, collisions, and undo.
-- Package the application so it can be installed and run as a command.
-
-## Contributing
-
-1. Create a feature branch.
-2. Make a focused change.
-3. Add or update tests for the behavior.
-4. Run `uv run python -m pytest`.
-5. Open a pull request describing the change and its safety impact.
+Classification is extension-based and does not inspect file contents. The
+project is designed for ordinary personal directories; very large trees should
+be benchmarked before using it as a batch service.
 
 ## License
 
-No license has been selected for this initial phase. Add a license before
-redistributing the project publicly.
+The project metadata declares the MIT License. Add the full MIT license text
+to a `LICENSE` file before redistributing the project publicly.

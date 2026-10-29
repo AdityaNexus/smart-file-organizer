@@ -18,7 +18,7 @@ class FileScanner:
 
         files = []
 
-        for item in self.directory.rglob("*"):
+        for item in sorted(self.directory.rglob("*"), key=lambda path: path.as_posix().lower()):
             relative_parts = item.relative_to(self.directory).parts
 
             if any(part in self.exclude for part in relative_parts):

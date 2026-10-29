@@ -24,7 +24,7 @@ class FileMover:
                 message=f"Source file {source} does not exist."
             )
 
-        if destination.is_file():
+        if destination.exists():
             message = f"Destination file {destination} already exists. Skipping move."
             logger.warning(message)
             return MoveResult(

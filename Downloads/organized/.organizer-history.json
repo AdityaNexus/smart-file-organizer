@@ -1,0 +1,20 @@
+[
+  [
+    {
+      "source": "C:\\Smart file organizer\\fie_movetest\\right.py",
+      "destination": "C:\\Smart file organizer\\Downloads\\organized\\Code\\right.py"
+    },
+    {
+      "source": "C:\\Smart file organizer\\fie_movetest\\kk.txt",
+      "destination": "C:\\Smart file organizer\\Downloads\\organized\\Documents\\kk.txt"
+    },
+    {
+      "source": "C:\\Smart file organizer\\fie_movetest\\last.pdf",
+      "destination": "C:\\Smart file organizer\\Downloads\\organized\\Documents\\last.pdf"
+    },
+    {
+      "source": "C:\\Smart file organizer\\fie_movetest\\make.yml",
+      "destination": "C:\\Smart file organizer\\Downloads\\organized\\Others\\make.yml"
+    }
+  ]
+]

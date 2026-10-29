@@ -1,0 +1,44 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "smart-file-organizer"
+version = "0.1.0"
+description = "A safe, preview-first command-line file organizer."
+readme = "readme.md"
+requires-python = ">=3.10"
+license = "MIT"
+authors = [{name = "AdityaNexus"}]
+dependencies = []
+
+[tool.setuptools]
+py-modules = [
+  "main",
+  "main2",
+  "organizer",
+  "FIle_scanner",
+  "File_item",
+  "Rule_engine",
+  "move_planner",
+  "file_mover",
+  "undo_manager",
+  "history",
+]
+packages = ["logger", "schemas"]
+
+[project.scripts]
+smart-organizer = "main:cli"
+
+[dependency-groups]
+dev = ["pytest>=8.0"]
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+testpaths = ["test"]
+
+[tool.ruff]
+line-length = 100
+
+[tool.ruff.lint]
+select = ["E", "F", "I"]

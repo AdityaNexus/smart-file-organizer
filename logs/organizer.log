@@ -1,3 +1,11 @@
 2026-10-23 11:58:18,784 | INFO | file_mover | Moved C:\Smart file organizer\move_case\last.txt to C:\Smart file organizer\Downloads\organized\Documents\last.txt
 2026-10-23 11:58:18,787 | INFO | file_mover | Moved C:\Smart file organizer\move_case\self.pdf to C:\Smart file organizer\Downloads\organized\Documents\self.pdf
 2026-10-23 11:58:18,790 | INFO | file_mover | Moved C:\Smart file organizer\move_case\learn.py to C:\Smart file organizer\Downloads\organized\Code\learn.py
+2026-10-29 06:49:04,966 | INFO | file_mover | Moved C:\Smart file organizer\fie_movetest\right.py to C:\Smart file organizer\Downloads\Code\right.py
+2026-10-29 06:49:04,968 | INFO | file_mover | Moved C:\Smart file organizer\fie_movetest\kk.txt to C:\Smart file organizer\Downloads\Documents\kk.txt
+2026-10-29 06:49:04,972 | INFO | file_mover | Moved C:\Smart file organizer\fie_movetest\last.pdf to C:\Smart file organizer\Downloads\Documents\last.pdf
+2026-10-29 06:49:04,974 | INFO | file_mover | Moved C:\Smart file organizer\fie_movetest\make.yml to C:\Smart file organizer\Downloads\Others\make.yml
+2026-10-29 06:55:57,701 | INFO | file_mover | Moved C:\Smart file organizer\fie_movetest\right.py to C:\Smart file organizer\Downloads\organized\Code\right.py
+2026-10-29 06:55:57,702 | INFO | file_mover | Moved C:\Smart file organizer\fie_movetest\kk.txt to C:\Smart file organizer\Downloads\organized\Documents\kk.txt
+2026-10-29 06:55:57,704 | INFO | file_mover | Moved C:\Smart file organizer\fie_movetest\last.pdf to C:\Smart file organizer\Downloads\organized\Documents\last.pdf
+2026-10-29 06:55:57,704 | INFO | file_mover | Moved C:\Smart file organizer\fie_movetest\make.yml to C:\Smart file organizer\Downloads\organized\Others\make.yml
